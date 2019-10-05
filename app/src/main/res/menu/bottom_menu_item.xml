@@ -3,15 +3,23 @@
 
     <item
         android:id="@+id/userMainItem"
-        android:icon="@android:drawable/ic_menu_search"
+        android:src="@drawable/homeItem"
         android:title="userMain" />
     <item
-        android:id="@+id/boardItem"
-        android:icon="@android:drawable/ic_menu_camera"
+        android:id="@+id/hospitalItem"
+        android:src="@drawable/hospitalItem"
         android:title="board" />
     <item
-        android:id="@+id/callItem"
-        android:icon="@android:drawable/ic_menu_call"
+        android:id="@+id/boardItem"
+        android:src="@drawable/boardItem"
+        android:title="Call" />
+    <item
+        android:id="@+id/noticeItem"
+        android:src="@drawable/ideaItem"
+        android:title="Call" />
+    <item
+        android:id="@+id/moreViewItem"
+        android:src="@drawable/listItem"
         android:title="Call" />
 
 </menu>
