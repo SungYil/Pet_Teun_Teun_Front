@@ -3,23 +3,24 @@
 
     <item
         android:id="@+id/userMainItem"
-        android:src="@drawable/homeItem"
-        android:title="userMain" />
+        android:icon="@drawable/home_item"
+        android:title="홈">
+    </item>
     <item
         android:id="@+id/hospitalItem"
-        android:src="@drawable/hospitalItem"
-        android:title="board" />
+        android:icon="@drawable/hospital_item"
+        android:title="병원매칭" />
     <item
         android:id="@+id/boardItem"
-        android:src="@drawable/boardItem"
-        android:title="Call" />
+        android:icon="@drawable/board_item"
+        android:title="게시판" />
     <item
         android:id="@+id/noticeItem"
-        android:src="@drawable/ideaItem"
-        android:title="Call" />
+        android:icon="@drawable/idea_item"
+        android:title="알림" />
     <item
         android:id="@+id/moreViewItem"
-        android:src="@drawable/listItem"
-        android:title="Call" />
+        android:icon="@drawable/list_item"
+        android:title="더보기" />
 
 </menu>

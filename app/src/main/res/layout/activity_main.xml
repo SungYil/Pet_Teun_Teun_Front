@@ -17,5 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorWeakBrown"
+        app:itemTextColor="@drawable/bottom_nav_selector"
+        app:itemIconTint="@drawable/bottom_nav_selector"
         app:menu="@menu/bottom_menu_item" />
+
 </LinearLayout>
