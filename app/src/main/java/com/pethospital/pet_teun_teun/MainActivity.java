@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         fragManager=getSupportFragmentManager();
+        
         boardFrag=new BoardFragment();
         userMainFrag=new UserMainFragment();
 
