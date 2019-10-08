@@ -74,7 +74,7 @@
                 android:id="@+id/hospital_match"
                 android:layout_width="90dp"
                 android:layout_height="60dp"
-                android:src="@drawable/hospitalRed"
+                android:src="@drawable/hospital_red"
                 android:scaleType="fitCenter"
                 android:layout_marginRight="10dp"></ImageButton>
             <TextView
@@ -85,4 +85,22 @@
         </LinearLayout>
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="일정 입력"
+        android:textSize="25dp"
+        android:padding="8dp"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorWeakBrown"></TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:orientation="vertical">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+    </LinearLayout>
 </LinearLayout>

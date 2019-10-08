@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/userMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="유저 메인 화면"
-        android:textSize="50dp"
-        />
+    <FrameLayout
+        android:id="@+id/top_user_main"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"></FrameLayout>
 
+    <FrameLayout
+        android:id="@+id/bottom_user_main"
+        android:layout_width="match_parent"
+        android:layout_height="335dp"></FrameLayout>
 </LinearLayout>
