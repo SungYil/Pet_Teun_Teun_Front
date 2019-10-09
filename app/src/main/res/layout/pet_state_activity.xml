@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/pet_state_back_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/back_space"
+            android:scaleType="fitCenter"
+            ></ImageButton>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내 동물 상태 확인"
+            android:textSize="35dp"
+            android:textColor="@color/colorIconRed"
+            android:layout_gravity="center"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:id="@+id/state_view_all_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전체    "
+            android:textSize="25dp"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/state_view_goods_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="애완용품    "
+            android:textSize="25dp"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/state_view_walking_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="산책    "
+            android:textSize="25dp"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/state_view_eat_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="간식"
+            android:textSize="25dp"
+            ></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorWeakBrown"
+        >
+        <TextView
+            android:id="@+id/state_day"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2019년"
+            android:textSize="21dp"
+            android:textColor="@color/colorWhite"
+            ></TextView>
+
+        <Button
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="변경"></Button>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/state_subText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="동물"
+        android:textSize="25dp"
+        android:padding="8dp"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorBrown"></TextView>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+</LinearLayout>
