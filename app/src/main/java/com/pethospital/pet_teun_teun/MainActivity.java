@@ -23,12 +23,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //프래그먼트 관리
         fragManager=getSupportFragmentManager();
 
+        //버튼에 추가할 프래그먼트들 생성
         boardFrag=new BoardFragment();
         userMainFrag=new UserMainFragment();
 
+        //프래그먼트 시작.
         FragmentTransaction transaction=fragManager.beginTransaction();
+        //프래그먼트로 교체.
         transaction.replace(R.id.frameLayout,userMainFrag).commitAllowingStateLoss();
 
         BottomNavigationView bottomView=findViewById(R.id.navigationView);

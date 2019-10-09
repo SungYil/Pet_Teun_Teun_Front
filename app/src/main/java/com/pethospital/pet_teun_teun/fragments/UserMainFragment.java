@@ -23,12 +23,13 @@ public class UserMainFragment extends Fragment {
 
         fragManager=getChildFragmentManager();
         FragmentTransaction transaction = fragManager.beginTransaction();
+        FragmentTransaction transaction2=fragManager.beginTransaction();
 
         userInfo=new UserPetInfoFragment();
         userManage=new UserPetManageFragment();
 
-        transaction.replace(R.id.top_user_main,userInfo).commitAllowingStateLoss();
-        transaction.replace(R.id.bottom_user_main,userInfo).commitAllowingStateLoss();
+        transaction.replace(R.id.top_user_main,userInfo);
+        transaction.replace(R.id.bottom_user_main,userManage).commitAllowingStateLoss();
 
         return inflater.inflate(R.layout.user_main_fragment, container, false);
     }
