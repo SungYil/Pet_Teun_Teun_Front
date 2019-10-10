@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/hospital_detail_back_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/back_space"
+            android:scaleType="fitCenter"
+            ></ImageButton>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="병원 상세보기"
+            android:textSize="35dp"
+            android:textColor="@color/colorIconRed"
+            android:layout_gravity="center"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBrown"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/hospital_name"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="xx병원"
+            android:textSize="25dp"
+            android:textColor="@color/colorWhite"></TextView>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/favorite_button"
+            android:layout_marginRight="15dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitCenter"
+            android:src="@drawable/emp_star"></ImageButton>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/state"></ImageView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+            
+            <TextView
+                android:id="@+id/hospital_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="위치: xxx시 xx동"
+                android:textSize="20dp"></TextView>
+
+            <TextView
+                android:id="@+id/hospital_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tel=02 xxx xxxx"
+                android:textSize="20dp"></TextView>
+            
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/hospital_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2019에 방문 했다."
+        android:textSize="15dp"
+        android:layout_marginLeft="20dp"></TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/hospital_chat_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:text="문의 하기"></Button>
+
+        <Button
+            android:id="@+id/hospital_reserve_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:text="예약하기"></Button>
+
+        <Button
+            android:id="@+id/hospital_navi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="길찾기"></Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="병원 평점 : "
+            android:textSize="20dp"
+            android:layout_gravity="center"></TextView>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"></RatingBar>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="댓글"
+        android:textSize="20dp"
+        android:layout_marginLeft="25dp"></TextView>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/input_comment"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="wrap_content"></EditText>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="입력"></Button>
+    </LinearLayout>
+</LinearLayout>
