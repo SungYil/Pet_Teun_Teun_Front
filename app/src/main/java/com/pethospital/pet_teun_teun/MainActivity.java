@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.pethospital.pet_teun_teun.fragments.BoardFragment;
+import com.pethospital.pet_teun_teun.fragments.MatchingMainFragment;
 import com.pethospital.pet_teun_teun.fragments.UserMainFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager fragManager;
     private BoardFragment boardFrag;
     private UserMainFragment userMainFrag;
+    private MatchingMainFragment matchingMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         //버튼에 추가할 프래그먼트들 생성
         boardFrag=new BoardFragment();
         userMainFrag=new UserMainFragment();
+        matchingMain=new MatchingMainFragment();
 
         //프래그먼트 시작.
         FragmentTransaction transaction=fragManager.beginTransaction();
@@ -55,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.userMainItem:
                     transaction.replace(R.id.frameLayout, userMainFrag).commitAllowingStateLoss();
                     break;
+                case R.id.hospitalItem:
+                    transaction.replace(R.id.frameLayout,matchingMain).commitAllowingStateLoss();
             }
             return true;
         }

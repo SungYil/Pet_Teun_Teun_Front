@@ -2,15 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBeigy"
     android:orientation="vertical">
+
+    <ImageButton
+        android:id="@+id/setting_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/gear_item"></ImageButton>
 
     <FrameLayout
         android:id="@+id/top_user_main"
         android:layout_width="match_parent"
-        android:layout_height="220dp"></FrameLayout>
+        android:layout_height="wrap_content"></FrameLayout>
 
     <FrameLayout
         android:id="@+id/bottom_user_main"
         android:layout_width="match_parent"
-        android:layout_height="335dp"></FrameLayout>
+        android:layout_height="300dp"></FrameLayout>
 </LinearLayout>
