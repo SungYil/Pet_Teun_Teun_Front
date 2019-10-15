@@ -13,6 +13,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/back_space"
+            style="?android:attr/borderlessButtonStyle"
             android:scaleType="fitCenter"
             ></ImageButton>
         <TextView
