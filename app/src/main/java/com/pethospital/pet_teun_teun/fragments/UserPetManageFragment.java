@@ -13,8 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.pethospital.pet_teun_teun.MainActivity;
 import com.pethospital.pet_teun_teun.PetStateViewActivity;
 import com.pethospital.pet_teun_teun.R;
+import com.pethospital.pet_teun_teun.ReservationCommitActivity;
+import com.pethospital.pet_teun_teun.UserVaccinActivity;
 
 public class UserPetManageFragment extends Fragment {
 
@@ -33,17 +36,15 @@ public class UserPetManageFragment extends Fragment {
         stateView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //Intent intent=new Intent(getActivity(), PetStateViewActivity.class);
-                //startActivity(intent);
-                Log.v("상태확인 버튼 클릭","버튼 클릭 완료");
-
+                Intent intent=new Intent(getActivity(), PetStateViewActivity.class);
+                startActivity(intent);
             }
         });
 
         reserConfirm.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent=new Intent(getActivity(), PetStateViewActivity.class);
+                Intent intent=new Intent(getActivity(), ReservationCommitActivity.class);
                 startActivity(intent);
             }
         });
@@ -51,7 +52,7 @@ public class UserPetManageFragment extends Fragment {
         vaccin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent=new Intent(getActivity(), PetStateViewActivity.class);
+                Intent intent=new Intent(getActivity(), UserVaccinActivity.class);
                 startActivity(intent);
             }
         });
@@ -59,8 +60,7 @@ public class UserPetManageFragment extends Fragment {
         hospital.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent=new Intent(getActivity(), PetStateViewActivity.class);
-                startActivity(intent);
+                ((MainActivity)getActivity()).replaceFragment(new MatchingMainFragment(),R.id.hospitalItem);
             }
         });
         return v;
