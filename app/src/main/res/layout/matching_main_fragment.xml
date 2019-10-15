@@ -23,6 +23,7 @@
             android:layout_height="50dp"
             android:src="@drawable/search2"
             android:scaleType="fitCenter"
+            style="?android:attr/borderlessButtonStyle"
             ></ImageButton>
 
     </LinearLayout>
