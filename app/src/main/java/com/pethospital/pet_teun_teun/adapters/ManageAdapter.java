@@ -43,7 +43,7 @@ public class ManageAdapter extends BaseAdapter {
         /* 'list_item' Layout을 inflate하여 convertView 참조 획득 */
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.pet_manage_list_item, parent, false);
+            convertView = inflater.inflate(R.layout.user_pet_manage_list_item, parent, false);
         }
 
         /* 'list_item'에 정의된 위젯에 대한 참조 획득 */
