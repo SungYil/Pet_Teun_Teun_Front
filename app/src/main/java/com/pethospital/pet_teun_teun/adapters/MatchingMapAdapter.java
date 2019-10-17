@@ -1,24 +1,23 @@
 package com.pethospital.pet_teun_teun.adapters;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.pethospital.pet_teun_teun.R;
-import com.pethospital.pet_teun_teun.items.CommitViewItem;
+import com.pethospital.pet_teun_teun.items.MatchingViewItem;
 
 import java.util.ArrayList;
 
-public class CommitReservationAdapter extends BaseAdapter {
-    private ArrayList<CommitViewItem> myItems;
+public class MatchingMapAdapter extends BaseAdapter {
+    private ArrayList<MatchingViewItem> myItems;
 
-    public CommitReservationAdapter() {
-        myItems = new ArrayList<CommitViewItem>();
+    public MatchingMapAdapter() {
+        myItems = new ArrayList<MatchingViewItem>();
     }
 
     @Override
@@ -27,7 +26,7 @@ public class CommitReservationAdapter extends BaseAdapter {
     }
 
     @Override
-    public CommitViewItem getItem(int position) {
+    public MatchingViewItem getItem(int position) {
         return myItems.get(position);
     }
 
@@ -47,28 +46,28 @@ public class CommitReservationAdapter extends BaseAdapter {
         }
 
         /* 'list_item'에 정의된 위젯에 대한 참조 획득 */
-        ImageView listImage = (ImageView) convertView.findViewById(R.id.reservation_list_image);
-        TextView listdate = (TextView) convertView.findViewById(R.id.reservation_list_date);
-        TextView listName = (TextView) convertView.findViewById(R.id.reservation_list_name);
-        TextView listSubName = (TextView) convertView.findViewById(R.id.reservation_list_sub_name);
-        TextView listContents = (TextView) convertView.findViewById(R.id.reservation_list_contents);
+        RatingBar listRating=(RatingBar)convertView.findViewById(R.id.matching_item_rating);
+        TextView listOpenTime = (TextView) convertView.findViewById(R.id.matching_item_time);
+        TextView listName = (TextView) convertView.findViewById(R.id.matching_item_name);
+        TextView listKm = (TextView) convertView.findViewById(R.id.matching_item_km);
+        TextView listNum = (TextView) convertView.findViewById(R.id.matching_item_num);
 
         /* 각 리스트에 뿌려줄 아이템을 받아오는데 mMyItem 재활용 */
-        CommitViewItem myItem = getItem(position);
+        MatchingViewItem myItem = getItem(position);
 
         /* 각 위젯에 세팅된 아이템을 뿌려준다 */
-        listImage.setImageDrawable(myItem.getIcon());
-        listdate.setText(myItem.getDate());
+        listRating.setNumStars(myItem.getRating());
+        listOpenTime.setText(myItem.getOpenTime());
         listName.setText(myItem.getName());
-        listSubName.setText(myItem.getSubName());
-        listContents.setText(myItem.getContents());
+        listKm.setText(myItem.getKm());
+        listNum.setText(myItem.getPhoneNum());
 
         /* (위젯에 대한 이벤트리스너를 지정하고 싶다면 여기에 작성하면된다..)  */
         return convertView;
     }
 
-    public boolean addItem(Drawable img, String date, String name, String subName, String contents) {
-        return this.myItems.add(new CommitViewItem(img, date, name, subName, contents));
+    public boolean addItem(String name, String km, String phoneNum, String openTime,int rating) {
+        return this.myItems.add(new MatchingViewItem(name,km,phoneNum,openTime,rating));
 
     }
 }

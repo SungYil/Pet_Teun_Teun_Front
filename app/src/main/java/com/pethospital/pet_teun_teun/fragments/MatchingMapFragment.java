@@ -16,6 +16,6 @@ public class MatchingMapFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-        return inflater.inflate(R.layout.maiching_map_fragment, container, false);
+        return inflater.inflate(R.layout.matching_map_fragment, container, false);
     }
 }
