@@ -91,6 +91,7 @@
         android:background="@color/colorBrown"></TextView>
 
     <ListView
+        android:id="@+id/reservation_commit_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
