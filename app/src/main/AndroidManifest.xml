@@ -24,6 +24,10 @@
         </activity>
         <activity android:name=".UserVaccinActivity">
         </activity>
+        <activity android:name=".LoginMainActivity"/>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".JoinUserActivity"/>
+        <activity android:name=".JoinUser2Activity"/>
     </application>
 
 </manifest>
