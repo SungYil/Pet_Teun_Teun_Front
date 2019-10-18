@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pethospital.pet_teun_teun.R;
 import com.pethospital.pet_teun_teun.items.MatchingViewItem;
@@ -42,9 +43,9 @@ public class MatchingMapAdapter extends BaseAdapter {
         /* 'list_item' Layout을 inflate하여 convertView 참조 획득 */
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.reservation_commit_list_item, parent, false);
-        }
+            convertView = inflater.inflate(R.layout.matching_map_list_item, parent, false);
 
+        }
         /* 'list_item'에 정의된 위젯에 대한 참조 획득 */
         RatingBar listRating=(RatingBar)convertView.findViewById(R.id.matching_item_rating);
         TextView listOpenTime = (TextView) convertView.findViewById(R.id.matching_item_time);
@@ -56,7 +57,7 @@ public class MatchingMapAdapter extends BaseAdapter {
         MatchingViewItem myItem = getItem(position);
 
         /* 각 위젯에 세팅된 아이템을 뿌려준다 */
-        listRating.setNumStars(myItem.getRating());
+        listRating.setRating(myItem.getRating());
         listOpenTime.setText(myItem.getOpenTime());
         listName.setText(myItem.getName());
         listKm.setText(myItem.getKm());

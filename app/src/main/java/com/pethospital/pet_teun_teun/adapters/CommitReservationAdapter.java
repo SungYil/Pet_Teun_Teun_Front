@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pethospital.pet_teun_teun.R;
 import com.pethospital.pet_teun_teun.items.CommitViewItem;
@@ -45,7 +46,7 @@ public class CommitReservationAdapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.reservation_commit_list_item, parent, false);
         }
-
+        //Toast.makeText(context, "asdfasdfasdf", Toast.LENGTH_SHORT).show();
         /* 'list_item'에 정의된 위젯에 대한 참조 획득 */
         ImageView listImage = (ImageView) convertView.findViewById(R.id.reservation_list_image);
         TextView listdate = (TextView) convertView.findViewById(R.id.reservation_list_date);

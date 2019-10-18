@@ -109,11 +109,11 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <ListView
-            android:id="@+id/matcing_map_list"
+            android:id="@+id/matching_map_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></ListView>
     </LinearLayout>
