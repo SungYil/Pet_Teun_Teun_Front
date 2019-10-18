@@ -103,6 +103,7 @@
         android:background="@color/colorBrown"></TextView>
 
     <ListView
+        android:id="@+id/user_vaccine_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
