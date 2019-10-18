@@ -26,7 +26,7 @@ public class MatchingMapFragment extends Fragment {
         mapList=(ListView)v.findViewById(R.id.matching_map_list);
 
         dataSetting(v);
-        
+
         return v;
     }
     private void dataSetting(View v){

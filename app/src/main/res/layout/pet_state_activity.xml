@@ -104,6 +104,7 @@
         android:background="@color/colorBrown"></TextView>
 
     <ListView
+        android:id="@+id/pet_state_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
