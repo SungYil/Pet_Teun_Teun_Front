@@ -16,6 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PetStateViewActivity">
+        </activity>
+        <activity android:name=".ReservationCommitActivity">
+        </activity>
+        <activity android:name=".HospitalDetailActivity">
+        </activity>
+        <activity android:name=".UserVaccinActivity">
+        </activity>
+        <activity android:name=".LoginMainActivity"/>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".JoinUserActivity"/>
+        <activity android:name=".JoinUser2Activity"/>
     </application>
 
 </manifest>

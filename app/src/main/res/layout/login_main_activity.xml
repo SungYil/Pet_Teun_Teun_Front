@@ -35,18 +35,18 @@
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <Button
-        android:id="@+id/but_login"
+        android:id="@+id/login_main_btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/login_main_login"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/but_reg"
+        app:layout_constraintBottom_toTopOf="@+id/login_main_btn_reg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/but_reg"
+        android:id="@+id/login_main_btn_reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
