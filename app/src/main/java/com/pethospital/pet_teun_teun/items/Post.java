@@ -1,4 +1,4 @@
-package com.pethospital.pet_teun_teun;
+package com.pethospital.pet_teun_teun.items;
 
 public class Post {
     private String id;//식별자가 게시글 번호 아닐까?

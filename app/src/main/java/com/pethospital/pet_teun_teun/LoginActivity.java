@@ -1,6 +1,9 @@
 package com.pethospital.pet_teun_teun;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -19,5 +22,13 @@ public class LoginActivity extends AppCompatActivity {
         Button btn_forget = findViewById(R.id.login_btn_forget);
 
         //TODO : 통신 및 이것저것
+
+        btn_login.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

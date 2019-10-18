@@ -1,4 +1,4 @@
-package com.pethospital.pet_teun_teun;
+package com.pethospital.pet_teun_teun.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.pethospital.pet_teun_teun.items.Post;
+import com.pethospital.pet_teun_teun.R;
 
 import java.util.ArrayList;
 
