@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/reservation_back_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:src="@drawable/back_space"
+            android:scaleType="fitCenter"
+            ></ImageButton>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="병원 예약 확인"
+            android:textSize="35dp"
+            android:textColor="@color/colorIconRed"
+            android:layout_gravity="center"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/reserve_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/idea_item"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"></ImageView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/reserve_hospital_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xx병원"
+                android:textSize="20dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/reserve_hospital_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2019/09/27 내원"
+                android:textSize="20dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/reserve_hospital_tel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tel 02 xxx xxxx"
+                android:textSize="20dp"
+                ></TextView>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/reserve_cancel_button"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="취소하기"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/button_selector"
+            ></Button>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/reserve_subText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이전 예약"
+        android:textSize="25dp"
+        android:padding="8dp"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorBrown"></TextView>
+
+    <ListView
+        android:id="@+id/reservation_commit_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+</LinearLayout>

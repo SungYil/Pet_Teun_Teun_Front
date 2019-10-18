@@ -8,4 +8,9 @@
     <color name="colorBrown">#857774</color>
     <color name="colorBeigy">#f6f1eb</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorWeakGray">#E0E0E0</color>
+
+    <color name="clicked_1">#8A384C</color>
+    <color name="clicked_2">#8A384C</color>
+    <color name="stroke">#ffffff</color>
 </resources>
