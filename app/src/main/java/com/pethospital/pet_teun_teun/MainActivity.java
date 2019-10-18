@@ -11,13 +11,14 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.pethospital.pet_teun_teun.fragments.BoardFragment;
+import com.pethospital.pet_teun_teun.fragments.BoardPageFragment;
 import com.pethospital.pet_teun_teun.fragments.MatchingMainFragment;
 import com.pethospital.pet_teun_teun.fragments.UserMainFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     private FragmentManager fragManager;
-    private BoardFragment boardFrag;
+    private BoardPageFragment boardFrag;
     private UserMainFragment userMainFrag;
     private MatchingMainFragment matchingMain;
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         fragManager=getSupportFragmentManager();
 
         //버튼에 추가할 프래그먼트들 생성
-        boardFrag=new BoardFragment();
+        boardFrag=new BoardPageFragment();
         userMainFrag=new UserMainFragment();
         matchingMain=new MatchingMainFragment();
 
