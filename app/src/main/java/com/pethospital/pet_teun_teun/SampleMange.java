@@ -1,5 +1,7 @@
 package com.pethospital.pet_teun_teun;
 
+import com.pethospital.pet_teun_teun.items.Post;
+
 import java.util.ArrayList;
 
 public class SampleMange {

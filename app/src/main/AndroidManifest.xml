@@ -9,25 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".PetStateViewActivity"></activity>
+        <activity android:name=".ReservationCommitActivity"></activity>
+        <activity android:name=".HospitalDetailActivity"></activity>
+        <activity android:name=".UserVaccinActivity"></activity>
+        <activity android:name=".LoginMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PetStateViewActivity">
-        </activity>
-        <activity android:name=".ReservationCommitActivity">
-        </activity>
-        <activity android:name=".HospitalDetailActivity">
-        </activity>
-        <activity android:name=".UserVaccinActivity">
-        </activity>
-        <activity android:name=".LoginMainActivity"/>
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".JoinUserActivity"/>
-        <activity android:name=".JoinUser2Activity"/>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".JoinUserActivity" />
+        <activity android:name=".JoinUser2Activity" />
     </application>
 
 </manifest>
