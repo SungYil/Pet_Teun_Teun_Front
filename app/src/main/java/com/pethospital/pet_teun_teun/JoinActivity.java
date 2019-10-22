@@ -24,6 +24,12 @@ public class JoinActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //TODO : make clickListner into btn_hospital_reg
+        btn_hospital_registration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), JoinHospitalActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
