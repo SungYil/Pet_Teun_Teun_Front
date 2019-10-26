@@ -17,11 +17,11 @@ import java.util.ArrayList;
 
 public class PostAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
-    private ArrayList<Post> postList = new ArrayList<Post>() ;
+    private ArrayList<Post> postList;
 
     // PostAdapter 생성자
     public PostAdapter() {
-
+        postList = new ArrayList<Post>() ;
     }
 
     // Adapter에 사용되는 데이터의 개수를 리턴. : 필수 구현

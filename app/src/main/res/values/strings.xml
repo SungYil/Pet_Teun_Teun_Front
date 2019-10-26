@@ -9,4 +9,6 @@
     <string name="login_login">로그인</string>
     <string name="join_common">일반 회원용</string>
     <string name="join_medical">병원 회원용</string>
+    <string name="title_activity_reserve">ReserveActivity</string>
+    <string name="title_activity_detail_post">DetailPostActivity</string>
 </resources>

@@ -16,7 +16,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/hospital_main_consult_check">
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -33,7 +34,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/hospital_main_reserve_check">
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -43,7 +45,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="문의 확인">
+                android:text="예약 확인">
             </TextView>
         </LinearLayout>
         <LinearLayout
@@ -60,7 +62,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="문의 확인">
+                android:text="알림 시스템 관리"
+                android:id="@+id/hospital_main_alarm_checl">
             </TextView>
         </LinearLayout>
     </LinearLayout>
@@ -77,6 +80,5 @@
         android:layout_weight="1"
         android:scrollbars="vertical"
         android:id="@+id/hospital_main_reserve_list_view">
-
     </ListView>
 </LinearLayout>
