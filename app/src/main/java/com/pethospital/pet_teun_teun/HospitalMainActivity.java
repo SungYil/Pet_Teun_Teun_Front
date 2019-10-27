@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pethospital.pet_teun_teun.adapters.ReserveCheckAdapter;
 import com.pethospital.pet_teun_teun.items.ReserveCheckItem;
@@ -15,7 +16,6 @@ import java.util.ArrayList;
 
 public class HospitalMainActivity extends AppCompatActivity {
     private ListView listView;
-    private TextView temp;
     private ReserveCheckAdapter reserveCheckAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +27,16 @@ public class HospitalMainActivity extends AppCompatActivity {
         listView.setAdapter(reserveCheckAdapter);
         addData();
 
-        String url="https://www.naver.com/";
-        NetworkTask networkTask=new NetworkTask(url,null);
+        //아이디,비밀번호 저장한 객체
+        ContentValues test=new ContentValues();
+        test.put("id","jr30jr");
+        test.put("pwd","qs1933qs");
+        String url="http://1.231.53.49:2200/Pet_Tuen_Tuen/login.do";
+        NetworkTask networkTask=new NetworkTask(url,test);
         networkTask.execute();
-        temp=(TextView)findViewById(R.id.test_text);
     }
     void addData(){
-        ArrayList<ReserveCheckItem> sample=new SampleMange().getReserveCheckItems();
+        ArrayList<ReserveCheckItem> sample=new SampleMange().getReserveList();
         for(int i=0;i<sample.size();i++){
             reserveCheckAdapter.addItem(sample.get(i));
         }
@@ -65,7 +68,7 @@ public class HospitalMainActivity extends AppCompatActivity {
             super.onPostExecute(s);
 
             //doInBackground()로 부터 리턴된 값이 onPostExecute()의 매개변수로 넘어오므로 s를 출력한다.
-            temp.setText(s);
+            Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
         }
     }
 }
