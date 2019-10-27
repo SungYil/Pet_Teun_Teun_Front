@@ -13,6 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.pethospital.pet_teun_teun.fragments.BoardFragment;
 import com.pethospital.pet_teun_teun.fragments.BoardPageFragment;
 import com.pethospital.pet_teun_teun.fragments.MatchingMainFragment;
+import com.pethospital.pet_teun_teun.fragments.MoreViewFragment;
 import com.pethospital.pet_teun_teun.fragments.UserMainFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private BoardPageFragment boardFrag;
     private UserMainFragment userMainFrag;
     private MatchingMainFragment matchingMain;
+    private MoreViewFragment moreViewFrag;
 
     private BottomNavigationView bottomView;
 
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         boardFrag=new BoardPageFragment();
         userMainFrag=new UserMainFragment();
         matchingMain=new MatchingMainFragment();
+        moreViewFrag=new MoreViewFragment();
 
         //프래그먼트 시작.
         FragmentTransaction transaction=fragManager.beginTransaction();
@@ -57,12 +60,20 @@ public class MainActivity extends AppCompatActivity {
             {
                 case R.id.boardItem:
                     transaction.replace(R.id.frameLayout, boardFrag).commitAllowingStateLoss();
+
                     break;
                 case R.id.userMainItem:
                     transaction.replace(R.id.frameLayout, userMainFrag).commitAllowingStateLoss();
                     break;
                 case R.id.hospitalItem:
                     transaction.replace(R.id.frameLayout,matchingMain).commitAllowingStateLoss();
+                    break;
+                case R.id.moreViewItem:
+                    transaction.replace(R.id.frameLayout, moreViewFrag).commitAllowingStateLoss();
+                    break;
+                case R.id.noticeItem:
+                    /* TODO : 알림 프래그먼트 */
+                    break;
             }
             return true;
         }
