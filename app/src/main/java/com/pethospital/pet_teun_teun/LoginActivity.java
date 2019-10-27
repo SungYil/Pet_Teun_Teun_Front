@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
                 values.put("id",id);
                 values.put("password",password);
 
-                NetworkTask net=new NetworkTask("http://10.0.2.2:8080/Pet_Tuen_Tuen/login.do",values);
+                NetworkTask net=new NetworkTask("http://122.46.53.223:8080/Pet_Tuen_Tuen/login.do",values);
                 net.execute();
 
                 //new NetworkTask2().execute(values);

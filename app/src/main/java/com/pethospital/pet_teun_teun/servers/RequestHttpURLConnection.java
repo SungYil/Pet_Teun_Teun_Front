@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.Map;
 
 public class RequestHttpURLConnection {
@@ -41,7 +42,12 @@ public class RequestHttpURLConnection {
                 if (isAnd)
                     sbParams.append("&");
 
-                sbParams.append(key).append("=").append(value);
+                //sbParams.append(key).append("=").append(value);
+                try {
+                    sbParams.append(key).append("=").append(URLEncoder.encode(value, "UTF-8"));
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
 
                 // 파라미터가 2개 이상이면 isAnd를 true로 바꾸고 다음 루프부터 &를 붙인다.
                 if (!isAnd)
@@ -59,8 +65,13 @@ public class RequestHttpURLConnection {
 
             // [2-1]. urlConn 설정.
             urlConn.setRequestMethod("POST"); // URL 요청에 대한 메소드 설정 : POST.
+            urlConn.setReadTimeout(10000);
+            urlConn.setConnectTimeout(15000);
+            urlConn.setDoOutput(true);
+            urlConn.setDoInput(true);
             urlConn.setRequestProperty("Accept-Charset", "UTF-8"); // Accept-Charset 설정.
             urlConn.setRequestProperty("Context_Type", "application/x-www-form-urlencoded;cahrset=UTF-8");
+            urlConn.connect();
 
             // [2-2]. parameter 전달 및 데이터 읽어오기.
             String strParams = sbParams.toString(); //sbParams에 정리한 파라미터들을 스트링으로 저장. 예)id=id1&pw=123;
