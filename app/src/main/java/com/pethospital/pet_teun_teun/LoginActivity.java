@@ -1,12 +1,9 @@
 package com.pethospital.pet_teun_teun;
 
 import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.JsonReader;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,14 +13,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.pethospital.pet_teun_teun.servers.HttpClient;
 import com.pethospital.pet_teun_teun.servers.RequestHttpURLConnection;
 
 import org.json.JSONObject;
-
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edit_email;
@@ -50,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
                 String id = edit_email.getText().toString();
@@ -64,6 +57,10 @@ public class LoginActivity extends AppCompatActivity {
                 networkTask.execute();
 
                 if(check==1) {
+                    intent.putExtra("type","user");
+                    startActivity(intent);
+                }else if(check==2){
+                    intent.putExtra("type","hospital");
                     startActivity(intent);
                 }
             }
@@ -102,6 +99,25 @@ public class LoginActivity extends AppCompatActivity {
             //doInBackground()로 부터 리턴된 값이 onPostExecute()의 매개변수로 넘어오므로 s를 출력한다.
             Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
 
+            try {
+                JSONObject json = new JSONObject(s);
+                if("ok".equals(json.getString("msg"))){
+
+                    if("hospital".equals(json.getString("user"))){
+                        check=2;
+                    }else if("user".equals(json.getString("user"))){
+                        check=1;
+                    }else{
+                        check=0;
+                    }
+
+                }else{
+                    Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_LONG).show();
+                }
+
+            }catch(Exception e){
+                e.printStackTrace();
+            }
         }
     }
 

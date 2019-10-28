@@ -12,11 +12,16 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.pethospital.pet_teun_teun.fragments.BoardFragment;
 import com.pethospital.pet_teun_teun.fragments.BoardPageFragment;
+import com.pethospital.pet_teun_teun.fragments.HospitalInfoFragment;
+import com.pethospital.pet_teun_teun.fragments.HospitalMainFragment;
 import com.pethospital.pet_teun_teun.fragments.MatchingMainFragment;
 import com.pethospital.pet_teun_teun.fragments.MoreViewFragment;
 import com.pethospital.pet_teun_teun.fragments.UserMainFragment;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Fragment mainFrag;
+    private Fragment twoFrag;
 
     private FragmentManager fragManager;
     private BoardPageFragment boardFrag;
@@ -24,26 +29,36 @@ public class MainActivity extends AppCompatActivity {
     private MatchingMainFragment matchingMain;
     private MoreViewFragment moreViewFrag;
 
+    private HospitalMainFragment hosMainFrag;
+
     private BottomNavigationView bottomView;
 
+    private String type;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        type=getIntent().getStringExtra("type");
         //프래그먼트 관리
         fragManager=getSupportFragmentManager();
 
         //버튼에 추가할 프래그먼트들 생성
         boardFrag=new BoardPageFragment();
-        userMainFrag=new UserMainFragment();
+        if("hospital".equals(type)){
+            mainFrag=new HospitalMainFragment();
+            twoFrag=new HospitalInfoFragment();
+        }else{
+            twoFrag=new MatchingMainFragment();
+            mainFrag=new UserMainFragment();
+        }
         matchingMain=new MatchingMainFragment();
         moreViewFrag=new MoreViewFragment();
 
         //프래그먼트 시작.
         FragmentTransaction transaction=fragManager.beginTransaction();
         //프래그먼트로 교체.
-        transaction.replace(R.id.frameLayout,userMainFrag).commitAllowingStateLoss();
+        transaction.replace(R.id.frameLayout,mainFrag).commitAllowingStateLoss();
 
         bottomView=findViewById(R.id.navigationView);
         bottomView.setOnNavigationItemSelectedListener(new ItemSelectedListener(){
@@ -60,10 +75,9 @@ public class MainActivity extends AppCompatActivity {
             {
                 case R.id.boardItem:
                     transaction.replace(R.id.frameLayout, boardFrag).commitAllowingStateLoss();
-
                     break;
                 case R.id.userMainItem:
-                    transaction.replace(R.id.frameLayout, userMainFrag).commitAllowingStateLoss();
+                    transaction.replace(R.id.frameLayout, mainFrag).commitAllowingStateLoss();
                     break;
                 case R.id.hospitalItem:
                     transaction.replace(R.id.frameLayout,matchingMain).commitAllowingStateLoss();
