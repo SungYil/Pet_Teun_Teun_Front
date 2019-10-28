@@ -45,11 +45,17 @@ public class MainActivity extends AppCompatActivity {
 
         //버튼에 추가할 프래그먼트들 생성
         boardFrag=new BoardPageFragment();
+        userMainFrag=new UserMainFragment();
+
+        //메인프래그에 값전달해서 병원뽑을지 유저뽑을지.
+        Bundle bundle=new Bundle(1);
+        bundle.putString("type",type);
+        userMainFrag.setArguments(bundle);
         if("hospital".equals(type)){
             mainFrag=new HospitalMainFragment();
-            twoFrag=new HospitalInfoFragment();
+            //twoFrag=new HospitalInfoFragment();
         }else{
-            twoFrag=new MatchingMainFragment();
+            //twoFrag=new MatchingMainFragment();
             mainFrag=new UserMainFragment();
         }
         matchingMain=new MatchingMainFragment();
@@ -58,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         //프래그먼트 시작.
         FragmentTransaction transaction=fragManager.beginTransaction();
         //프래그먼트로 교체.
-        transaction.replace(R.id.frameLayout,mainFrag).commitAllowingStateLoss();
+        transaction.replace(R.id.frameLayout,userMainFrag).commitAllowingStateLoss();
 
         bottomView=findViewById(R.id.navigationView);
         bottomView.setOnNavigationItemSelectedListener(new ItemSelectedListener(){
@@ -77,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     transaction.replace(R.id.frameLayout, boardFrag).commitAllowingStateLoss();
                     break;
                 case R.id.userMainItem:
-                    transaction.replace(R.id.frameLayout, mainFrag).commitAllowingStateLoss();
+                    transaction.replace(R.id.frameLayout, userMainFrag).commitAllowingStateLoss();
                     break;
                 case R.id.hospitalItem:
                     transaction.replace(R.id.frameLayout,matchingMain).commitAllowingStateLoss();

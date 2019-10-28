@@ -1,6 +1,7 @@
 package com.pethospital.pet_teun_teun.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,15 +20,28 @@ public class UserMainFragment extends Fragment {
     private UserPetInfoFragment userInfo;
     private UserPetManageFragment userManage;
 
+    private Fragment info;
+    private Fragment manage;
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fragManager=getChildFragmentManager();
         FragmentTransaction transaction = fragManager.beginTransaction();
 
-        userInfo=new UserPetInfoFragment();
-        userManage=new UserPetManageFragment();
+        Bundle bundle=getArguments();
 
-        transaction.replace(R.id.top_user_main,userInfo);
-        transaction.replace(R.id.bottom_user_main,userManage).commitAllowingStateLoss();
+        if(bundle!=null){
+            Log.d("=================",bundle.getString("type"));
+            if(bundle.getString("type").equals("hospital")){
+                info=new HospitalInfoFragment();
+                manage=new HospitalMainbottomFragment();
+            }else{
+                info=new UserPetInfoFragment();
+                manage=new UserPetManageFragment();
+            }
+        }
+
+        transaction.replace(R.id.top_user_main,info);
+        transaction.replace(R.id.bottom_user_main,manage).commitAllowingStateLoss();
 
         return inflater.inflate(R.layout.user_main_fragment, container, false);
     }
