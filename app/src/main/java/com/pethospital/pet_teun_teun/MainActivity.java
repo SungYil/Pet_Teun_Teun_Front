@@ -10,10 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.pethospital.pet_teun_teun.fragments.BoardFragment;
 import com.pethospital.pet_teun_teun.fragments.BoardPageFragment;
-import com.pethospital.pet_teun_teun.fragments.HospitalInfoFragment;
-import com.pethospital.pet_teun_teun.fragments.HospitalMainFragment;
 import com.pethospital.pet_teun_teun.fragments.MatchingMainFragment;
 import com.pethospital.pet_teun_teun.fragments.MoreViewFragment;
 import com.pethospital.pet_teun_teun.fragments.UserMainFragment;
@@ -29,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private MatchingMainFragment matchingMain;
     private MoreViewFragment moreViewFrag;
 
-    private HospitalMainFragment hosMainFrag;
+   // private HospitalMainFragment hosMainFrag;
 
     private BottomNavigationView bottomView;
 
@@ -52,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("type",type);
         userMainFrag.setArguments(bundle);
         if("hospital".equals(type)){
-            mainFrag=new HospitalMainFragment();
+            mainFrag=new UserMainFragment();
             //twoFrag=new HospitalInfoFragment();
         }else{
             //twoFrag=new MatchingMainFragment();

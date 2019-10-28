@@ -7,17 +7,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/back_icon"
-            android:id="@+id/hospital_setting_back_img">
-        </ImageView>
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:src="@drawable/back_space"
+            android:scaleType="fitCenter"
+            android:id="@+id/hospital_setting_back_btn">
+        </ImageButton>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="35dp"
+            android:textColor="@color/colorIconRed"
+            android:layout_gravity="center"
             android:text="병원 시스템 관리">
         </TextView>
     </LinearLayout>
@@ -31,20 +34,31 @@
             android:layout_gravity="center"
             android:orientation="vertical">
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="예약 시간 간격 설정"
+                android:layout_gravity="center"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/button_selector"
+                android:layout_marginBottom="10dp"
                 android:id="@+id/hosptal_setting_reserve_term_btn">
             </Button>
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/button_selector"
                 android:text="의사별 설정"
+                android:layout_marginBottom="10dp"
                 android:id="@+id/hospital_setting_doctor_btn">
             </Button>
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/button_selector"
                 android:text="문의 새팅 설정"
                 android:id="@+id/hospital_setting_consert_btn">
             </Button>

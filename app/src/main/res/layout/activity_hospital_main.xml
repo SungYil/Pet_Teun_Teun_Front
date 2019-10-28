@@ -34,7 +34,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center"
-            android:id="@+id/hospital_main_reserve_check">
+            android:id="@+id/hospital_main_reserve_check_btn">
             <ImageButton
                 android:id="@+id/hospital_resver_confirm_btn"
                 android:layout_width="90dp"

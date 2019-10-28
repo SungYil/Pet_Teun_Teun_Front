@@ -1,5 +1,6 @@
 package com.pethospital.pet_teun_teun.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.pethospital.pet_teun_teun.ConsultSettingActivity;
+import com.pethospital.pet_teun_teun.PetStateViewActivity;
 import com.pethospital.pet_teun_teun.R;
 import com.pethospital.pet_teun_teun.SampleMange;
 import com.pethospital.pet_teun_teun.adapters.ReserveCheckAdapter;
@@ -34,6 +37,28 @@ public class HospitalMainbottomFragment extends Fragment {
         cunsulBtn=v.findViewById(R.id.hospital_consulting_btn);
         reserBtn=v.findViewById(R.id.hospital_resver_confirm_btn);
         alarmBtn=v.findViewById(R.id.hospital_alarm_btn);
+
+        cunsulBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent=new Intent(getActivity(), ConsultSettingActivity.class);
+                startActivity(intent);
+            }
+        });
+        reserBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent=new Intent(getActivity(), ConsultSettingActivity.class);
+                startActivity(intent);
+            }
+        });
+        alarmBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent=new Intent(getActivity(), ConsultSettingActivity.class);
+                startActivity(intent);
+            }
+        });
 
         reserveCheckAdapter=new ReserveCheckAdapter();
         listView.setAdapter(reserveCheckAdapter);

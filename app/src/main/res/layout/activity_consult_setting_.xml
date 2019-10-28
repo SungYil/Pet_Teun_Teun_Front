@@ -7,26 +7,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/back_icon"
-            android:id="@+id/consult_setting_back_img">
-        </ImageView>
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:src="@drawable/back_space"
+            android:scaleType="fitCenter"
+            android:id="@+id/consult_setting_back_btn">
+        </ImageButton>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="35dp"
+            android:textColor="@color/colorIconRed"
+            android:layout_gravity="center"
             android:text="문의채팅 설정">
         </TextView>
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorWhite"
         android:text="현재 문의 채팅 시작글"
-        android:background="@color/cardview_dark_background">
+        android:textSize="25dp"
+        android:padding="8dp"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorWeakBrown">
     </TextView>
     <TextView
         android:layout_width="match_parent"
@@ -38,8 +43,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="설정하기"
+        android:textSize="25dp"
+        android:padding="8dp"
         android:textColor="@color/colorWhite"
-        android:background="@color/cardview_dark_background">
+        android:background="@color/colorWeakBrown">
     </TextView>
     <TextView
         android:layout_width="match_parent"
