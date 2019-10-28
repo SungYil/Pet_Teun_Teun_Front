@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/back_icon"
+            android:id="@+id/reserve_term_setting_back_img">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="예약 시간 간격 설정">
+        </TextView>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:background="@color/cardview_dark_background"
+        android:textColor="@color/colorWhite"
+        android:text="현재 예약 시간 간격">
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15분 간격"
+        android:id="@+id/reserve_term_setting_term_time">
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="한 타임당 최대 1명"
+        android:id="@+id/reserve_term_setting_term_max_people">
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:background="@color/cardview_dark_background"
+        android:textColor="@color/colorWhite"
+        android:text="설정하기">
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시간 간격">
+        </TextView>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="시간 간격을 입력해주세요"
+            android:inputType="number"
+            android:background="@color/colorWhite"
+            android:id="@+id/reserve_term_setting_term_time_input">
+        </EditText>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="한 타임당 받을 수 있는 환자수">
+
+    </TextView>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="타임당 받을 환자수 입력해주세요."
+        android:inputType="number"
+        android:background="@color/colorWhite"
+        android:id="@+id/reserve_term_setting_term_max_people_input">
+    </EditText>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="설정하기"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/reserve_term_setting_check_btn">
+
+    </Button>
+</LinearLayout>

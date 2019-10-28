@@ -31,9 +31,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".JoinUserActivity"/>
-        <activity android:name=".JoinUser2Activity"/>
+        <activity android:name=".HospitalMainActivity">
+        </activity>
+        <activity android:name=".ConsultSettingActivity">
+        </activity>
+        <activity android:name=".ReserveTermSettingActivity"></activity>
+        <activity android:name=".HospitalSettingActivity" />
+        <activity android:name=".AlarmActivity" />
+        <activity android:name=".MyPostActivity" />
+        <activity
+            android:name=".DetailPostActivity"
+            android:label="@string/title_activity_detail_post"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".JoinUserActivity" />
+        <activity android:name=".JoinUser2Activity" />
+        <activity android:name=".ReserveActivity" />
+        <activity android:name=".BoardActivity" />
     </application>
 
 </manifest>

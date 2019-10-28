@@ -1,4 +1,4 @@
-package com.pethospital.pet_teun_teun;
+package com.pethospital.pet_teun_teun.items;
 
 public class Comment {
     private String commentId;

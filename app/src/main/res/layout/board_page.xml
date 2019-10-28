@@ -17,27 +17,27 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="5dp"
                 android:text="인기"
-                android:id="@+id/popular_board">
+                android:id="@+id/board_popular_board">
             </TextView>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginRight="5dp"
                 android:text="최근"
-                android:id="@+id/recent_board">
+                android:id="@+id/board_recent_board">
             </TextView>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginRight="5dp"
                 android:text="내동물"
-                android:id="@+id/my_pet_board">
+                android:id="@+id/board_my_pet_board">
             </TextView>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Tip"
-                android:id="@+id/tip_board">
+                android:id="@+id/board_tip_board">
             </TextView>
         </LinearLayout>
         <LinearLayout
@@ -69,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/post_list_view">
+        android:id="@+id/board_post_list_view">
 
     </ListView>
 

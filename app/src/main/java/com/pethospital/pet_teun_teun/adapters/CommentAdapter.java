@@ -1,4 +1,4 @@
-package com.pethospital.pet_teun_teun;
+package com.pethospital.pet_teun_teun.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,17 +8,20 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.pethospital.pet_teun_teun.R;
+import com.pethospital.pet_teun_teun.items.Comment;
+
 import java.util.ArrayList;
 
 // iv ==ImageView,tv ==TextView
 
 public class CommentAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
-    private ArrayList<Comment> commentList = new ArrayList<Comment>() ;
+    private ArrayList<Comment> commentList;
 
     // PostAdapter 생성자
     public CommentAdapter() {
-
+        commentList = new ArrayList<Comment>();
     }
 
     // Adapter에 사용되는 데이터의 개수를 리턴. : 필수 구현
