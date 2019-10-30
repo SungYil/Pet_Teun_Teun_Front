@@ -29,11 +29,11 @@ public class HospitalMainbottomFragment extends Fragment {
     private ImageButton cunsulBtn;
     private ImageButton reserBtn;
     private ImageButton alarmBtn;
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.activity_hospital_main, container, false);
 
         listView=v.findViewById(R.id.hospital_main_reserve_list_view);
-
         cunsulBtn=v.findViewById(R.id.hospital_consulting_btn);
         reserBtn=v.findViewById(R.id.hospital_resver_confirm_btn);
         alarmBtn=v.findViewById(R.id.hospital_alarm_btn);

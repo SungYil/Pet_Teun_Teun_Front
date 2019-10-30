@@ -21,7 +21,6 @@ public class HospitalInfoFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.hospital_info_fragment, container, false);
         setBtn=(ImageButton)v.findViewById(R.id.hospital_setting_btn);
-
         setBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
