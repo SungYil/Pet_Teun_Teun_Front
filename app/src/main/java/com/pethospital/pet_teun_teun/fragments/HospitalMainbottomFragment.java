@@ -17,10 +17,13 @@ import com.pethospital.pet_teun_teun.ConsultSettingActivity;
 import com.pethospital.pet_teun_teun.PetStateViewActivity;
 import com.pethospital.pet_teun_teun.R;
 import com.pethospital.pet_teun_teun.SampleMange;
+import com.pethospital.pet_teun_teun.adapters.ManageAdapter;
 import com.pethospital.pet_teun_teun.adapters.ReserveCheckAdapter;
+import com.pethospital.pet_teun_teun.items.ManageViewItem;
 import com.pethospital.pet_teun_teun.items.ReserveCheckItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HospitalMainbottomFragment extends Fragment {
     private ListView listView;
@@ -29,8 +32,12 @@ public class HospitalMainbottomFragment extends Fragment {
     private ImageButton cunsulBtn;
     private ImageButton reserBtn;
     private ImageButton alarmBtn;
+
+    private Bundle bundle;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.activity_hospital_main, container, false);
+
+        bundle=getArguments();
 
         listView=v.findViewById(R.id.hospital_main_reserve_list_view);
 
@@ -62,10 +69,22 @@ public class HospitalMainbottomFragment extends Fragment {
 
         reserveCheckAdapter=new ReserveCheckAdapter();
         listView.setAdapter(reserveCheckAdapter);
-        addData();
+        //addData();
 
-        return inflater.inflate(R.layout.activity_hospital_main, container, false);
+        dataSetting(v);
+
+        return v;
     }
+    private void dataSetting(View v){
+        List<ReserveCheckItem> ary= bundle.getParcelableArrayList("list");
+
+        if(ary!=null){
+            for(int i=0;i<ary.size();++i){
+                reserveCheckAdapter.addItem(ary.get(i));
+            }
+        }
+    }
+
     void addData(){
         ArrayList<ReserveCheckItem> sample=new SampleMange().getReserveList();
         for(int i=0;i<sample.size();i++){
