@@ -24,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView textView;
     private int check;
 
+    private Intent intent;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent = new Intent(getApplicationContext(), MainActivity.class);
 
                 String id = edit_email.getText().toString();
                 String password = edit_password.getText().toString();
@@ -52,17 +53,17 @@ public class LoginActivity extends AppCompatActivity {
                 ContentValues values = new ContentValues();
                 values.put("id", id);
                 values.put("password", password);
-                String url="http://122.46.53.223:8080/Pet_Tuen_Tuen/login.do";
+                String url=getString(R.string.url)+"login.do";
                 NetworkTask networkTask=new NetworkTask(url,values);
                 networkTask.execute();
-
-                if(check==1) {
+                intent.putExtra("type","hospital");
+                /*if(check==1) {
                     intent.putExtra("type","user");
                     startActivity(intent);
                 }else if(check==2){
                     intent.putExtra("type","hospital");
                     startActivity(intent);
-                }
+                }*/
             }
         });
     }
@@ -104,9 +105,11 @@ public class LoginActivity extends AppCompatActivity {
                 if("ok".equals(json.getString("msg"))){
 
                     if("hospital".equals(json.getString("user"))){
-                        check=2;
+                        intent.putExtra("type","hospital");
+                        startActivity(intent);
                     }else if("user".equals(json.getString("user"))){
-                        check=1;
+                        intent.putExtra("type","user");
+                        startActivity(intent);
                     }else{
                         check=0;
                     }

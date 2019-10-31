@@ -1,10 +1,12 @@
 package com.pethospital.pet_teun_teun.items;
 
 import android.graphics.drawable.Drawable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.pethospital.pet_teun_teun.R;
 
-public class ManageViewItem {
+public class ManageViewItem implements Parcelable {
     private Drawable icon;
     private String name;
     private String subname;
@@ -15,6 +17,11 @@ public class ManageViewItem {
         this.name="emp";
         this.subname="emp";
         this.content="emp";
+    }
+    public ManageViewItem(Parcel in){
+        this.name=in.readString();
+        this.subname=in.readString();
+        this.content=in.readString();
     }
     public ManageViewItem(Drawable icon, String name, String subname, String content) {
         this.icon = icon;
@@ -53,5 +60,29 @@ public class ManageViewItem {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public static final Creator<ManageViewItem> CREATOR = new Creator<ManageViewItem>() {
+        @Override
+        public ManageViewItem createFromParcel(Parcel in) {
+            return new ManageViewItem(in);
+        }
+
+        @Override
+        public ManageViewItem[] newArray(int size) {
+            return new ManageViewItem[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(subname);
+        dest.writeString(content);
     }
 }

@@ -34,7 +34,7 @@ public class HospitalMainActivity extends AppCompatActivity {
         listView=findViewById(R.id.hospital_main_reserve_list_view);
         reserveCheckAdapter=new ReserveCheckAdapter();
         listView.setAdapter(reserveCheckAdapter);
-        settingBtn=(ImageButton)findViewById(R.id.hospital_main_setting);
+        settingBtn=(ImageButton)findViewById(R.id.hospital_info_setting_btn);
         settingBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
