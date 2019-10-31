@@ -3,6 +3,7 @@ package com.pethospital.pet_teun_teun.fragments;
 import android.content.ContentValues;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,8 @@ public class UserPetInfoFragment extends Fragment {
         species=v.findViewById(R.id.user_pet_kinds);
 
         Bundle bundle=getArguments();
+
+        Log.d("@@@@@@@@",bundle.getString("petName"));
 
         petName.setText(bundle.getString("petName"));
         adopt.setText(bundle.getString("adopt"));

@@ -39,13 +39,15 @@ public class UserMainFragment extends Fragment {
 
     private Bundle data;
 
+    private FragmentTransaction transaction;
+
     private View v;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v=inflater.inflate(R.layout.user_main_fragment, container, false);
 
         //프래그먼트에 프래그먼트들을 세팅하기위해 매니저를 불러온다.
         fragManager=getChildFragmentManager();
-        FragmentTransaction transaction = fragManager.beginTransaction();
+        transaction = fragManager.beginTransaction();
 
         data=getArguments();
         //통신코드
@@ -68,13 +70,9 @@ public class UserMainFragment extends Fragment {
             }
         }
 
-        //데이터 세팅
-        info.setArguments(data);
-         manage.setArguments(data);
 
-        //세팅을 하고 커밋을 하여 실제 완료
-        transaction.replace(R.id.top_user_main,info);
-        transaction.replace(R.id.bottom_user_main,manage).commitAllowingStateLoss();
+
+
 
         return v;
     }
@@ -148,6 +146,14 @@ public class UserMainFragment extends Fragment {
                         data.putParcelableArrayList("list",(ArrayList<? extends Parcelable>)ary);
                     }
 
+                    //데이터 세팅
+                    info.setArguments(data);
+                    manage.setArguments(data);
+
+
+                    //세팅을 하고 커밋을 하여 실제 완료
+                    transaction.replace(R.id.top_user_main,info);
+                    transaction.replace(R.id.bottom_user_main,manage).commitAllowingStateLoss();
                 }else{
 
                     Toast.makeText(getActivity(), "데이터 로딩 실패", Toast.LENGTH_LONG).show();
