@@ -130,6 +130,7 @@ public class RequestHttpURLConnection {
 
         return null;
     }
+
     private void getCookieHeader(HttpURLConnection urlConn){//Set-Cookie에 배열로 돼있는 쿠키들을 스트링 한줄로 변환
         List<String> cookies = urlConn.getHeaderFields().get("Set-Cookie");
         //cookies -> [JSESSIONID=D3F829CE262BC65853F851F6549C7F3E; Path=/smartudy; HttpOnly] -> []가 쿠키1개임.
@@ -140,10 +141,10 @@ public class RequestHttpURLConnection {
                 //JSESSIONID=FB42C80FC3428ABBEF185C24DBBF6C40를 얻음.
                 //세션아이디가 포함된 쿠키를 얻었음.
                 setSessionIdInSharedPref(sessionid);
-
             }
         }
     }
+
     private void setSessionIdInSharedPref(String sessionid){
         if(context!=null) {
             SharedPreferences pref = context.getSharedPreferences("sessionCookie", Context.MODE_PRIVATE);
@@ -154,6 +155,7 @@ public class RequestHttpURLConnection {
                 Log.d("LOG", "기존의 세션 아이디" + pref.getString("sessionid", null) + "가 만료 되어서 "
                         + "서버의 세션 아이디 " + sessionid + " 로 교체 되었습니다.");
             }
+
             edit.putString("sessionid", sessionid);
             edit.apply(); //비동기 처리
         }

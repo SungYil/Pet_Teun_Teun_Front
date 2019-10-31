@@ -47,7 +47,6 @@ public class ReserveCheckAdapter extends BaseAdapter {
         TextView typeTv=(TextView)convertView.findViewById(R.id.reserve_check_item_type);
         TextView dateTv=(TextView)convertView.findViewById(R.id.reserve_check_item_time);
         TextView careTypeTv=(TextView)convertView.findViewById(R.id.reserve_check_item_care_type);
-        Button checkBtn=(Button)convertView.findViewById(R.id.reserve_check_item_check_btn);
         Button cancelBtn=(Button)convertView.findViewById(R.id.reserve_check_item_cancel_btn);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
@@ -59,13 +58,6 @@ public class ReserveCheckAdapter extends BaseAdapter {
         dateTv.setText(item.getTime());
         careTypeTv.setText(item.getCareType());
 
-        //btn 이벤트 처리할거
-        checkBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context,"선택한 id : "+reservesList.get(position).getId()+"",Toast.LENGTH_LONG).show();
-            }
-        });
         cancelBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {

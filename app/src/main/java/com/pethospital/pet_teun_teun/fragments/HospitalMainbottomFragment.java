@@ -34,6 +34,7 @@ public class HospitalMainbottomFragment extends Fragment {
     private ImageButton alarmBtn;
 
     private Bundle bundle;
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.activity_hospital_main, container, false);
 
