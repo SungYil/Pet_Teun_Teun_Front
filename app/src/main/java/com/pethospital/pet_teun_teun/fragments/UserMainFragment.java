@@ -70,10 +70,6 @@ public class UserMainFragment extends Fragment {
             }
         }
 
-
-
-
-
         return v;
     }
 
