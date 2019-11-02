@@ -1,42 +1,147 @@
 package com.pethospital.pet_teun_teun.fragments;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
+import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.pethospital.pet_teun_teun.NaviHospitalActivity;
 import com.pethospital.pet_teun_teun.R;
 import com.pethospital.pet_teun_teun.adapters.ManageAdapter;
 import com.pethospital.pet_teun_teun.adapters.MatchingMapAdapter;
 import com.pethospital.pet_teun_teun.items.MatchingViewItem;
+import com.pethospital.pet_teun_teun.servers.SearchLocation;
+
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.ServiceConfigurationError;
+import java.util.StringTokenizer;
 
 public class MatchingMapFragment extends Fragment {
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1000;
+
+    private FragmentManager fragManager;
 
     private ListView mapList;
+    private ImageButton bigHosBtn;
+    private ImageButton tfBtn;
+    private ImageButton myPetBtn;
+    private ImageButton favorBtn;
+
+    private SearchLocation searchs;
+
+    private Double curLon;
+    private Double curLat;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.matching_map_fragment, container, false);
+
         mapList=(ListView)v.findViewById(R.id.matching_map_list);
+        bigHosBtn=v.findViewById(R.id.big_hospital_button);
+        tfBtn=v.findViewById(R.id.open_hospital_button);
+        myPetBtn=v.findViewById(R.id.my_pet_hospital_button);
+        favorBtn=v.findViewById(R.id.favorite_button);
 
-        dataSetting(v);
+        fragManager=getChildFragmentManager();
 
+        bigHosBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                dataSetting(searchs.searchLocation("동물의료센터",curLon,curLat));
+            }
+        });
+        tfBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                dataSetting(searchs.searchLocation("24시동물병원",curLon,curLat));
+            }
+        });
+        myPetBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Log.d("species",getArguments().getString("species"));
+                dataSetting(searchs.searchLocation("동물병원",curLon,curLat));
+            }
+        });
+
+        searchs=new SearchLocation();
+        LocationManager locationManager=(LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
+
+        int permissionCheck = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION);
+        if(permissionCheck == PackageManager.PERMISSION_DENIED){
+            // 권한 없음
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    LOCATION_PERMISSION_REQUEST_CODE);
+        }
+        Location lo=locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        String provider=lo.getProvider();
+        curLon=lo.getLongitude();
+        curLat=lo.getLatitude();
+
+        //dataSetting(v);
+        dataSetting(searchs.searchLocation("동물의료센터",curLon,curLat));
         return v;
     }
-    private void dataSetting(View v){
+    class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            FragmentTransaction transaction = fragManager.beginTransaction();
+
+            switch(menuItem.getItemId())
+            {
+                case R.id.big_hospital_button:
+                    dataSetting(searchs.searchLocation("동물의료센터",curLon,curLat));
+
+                    break;
+                case R.id.open_hospital_button:
+                    dataSetting(searchs.searchLocation("24시동물병원",curLon,curLat));
+                    break;
+                case R.id.my_pet_hospital_button:
+                    break;
+                case R.id.favorite_button:
+                    break;
+            }
+            return true;
+        }
+    }
+
+    private void dataSetting(ArrayList<JSONObject> ary){
         MatchingMapAdapter myAdap=new MatchingMapAdapter();
 
-        myAdap.addItem("xx병원","0km","010-xxx-xxxx","10시~11시",1);
-        myAdap.addItem("yy병원","0km","010-xxx-xxxx","10시~11시",1);
-        myAdap.addItem("ww병원","0km","010-xxx-xxxx","10시~11시",1);
-        myAdap.addItem("qq병원","0km","010-xxx-xxxx","10시~11시",1);
-        myAdap.addItem("zz병원","0km","010-xxx-xxxx","10시~11시",1);
+        try {
+            for (int i = 0; i < ary.size(); ++i) {
+                JSONObject obj = ary.get(i);
+                StringTokenizer token=new StringTokenizer(obj.getString("distance"),".");
+
+                myAdap.addItem(obj.getString("name"), token.nextToken()+"m", "tel "+obj.getString("phone_number"), obj.getString("road_address"),4);
+            }
+        }catch (Exception e){
+
+        }
+
 
         mapList.setAdapter(myAdap);
     }

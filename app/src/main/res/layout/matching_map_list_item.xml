@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/matching_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="xx 동물병원"
+        android:textSize="18dp"></TextView>
 
     <LinearLayout
         android:padding="5dp"
@@ -9,12 +16,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/matching_item_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="xx 동물병원"
-            android:textSize="20dp"></TextView>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,7 +24,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="138dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"

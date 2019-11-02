@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/navi_back_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/back_space"
+            style="?android:attr/borderlessButtonStyle"
+            android:scaleType="fitCenter"
+            ></ImageButton>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xx병원"
+            android:textSize="35dp"
+            android:textColor="@color/colorIconRed"
+            android:layout_gravity="center"></TextView>
+    </LinearLayout>
+
+    <com.naver.maps.map.MapView
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="350dp">
+    </com.naver.maps.map.MapView>
+
+    <TextView
+        android:id="@+id/state_subText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="경로선택"
+        android:textSize="25dp"
+        android:padding="8dp"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorBrown"></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/empty_text"></TextView>
+    <ListView
+        android:id="@+id/user_vaccine_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+</LinearLayout>

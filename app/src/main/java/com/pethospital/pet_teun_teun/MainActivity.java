@@ -48,13 +48,13 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle=new Bundle(1);
         bundle.putString("type",type);
         userMainFrag.setArguments(bundle);
-        if("hospital".equals(type)){
+       /* if("hospital".equals(type)){
             mainFrag=new UserMainFragment();
             //twoFrag=new HospitalInfoFragment();
         }else{
             //twoFrag=new MatchingMainFragment();
             mainFrag=new UserMainFragment();
-        }
+        }*/
         matchingMain=new MatchingMainFragment();
         moreViewFrag=new MoreViewFragment();
 
