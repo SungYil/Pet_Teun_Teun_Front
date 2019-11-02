@@ -63,7 +63,6 @@ public class UserMainFragment extends Fragment {
             if (data.getString("type").equals("hospital")) {
                 info = new HospitalInfoFragment();
                 manage = new HospitalMainbottomFragment();
-
             } else {
                 info = new UserPetInfoFragment();
                 manage = new UserPetManageFragment();
@@ -145,7 +144,6 @@ public class UserMainFragment extends Fragment {
                     //데이터 세팅
                     info.setArguments(data);
                     manage.setArguments(data);
-
 
                     //세팅을 하고 커밋을 하여 실제 완료
                     transaction.replace(R.id.top_user_main,info);

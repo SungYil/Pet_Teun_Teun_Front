@@ -21,18 +21,19 @@ public class HospitalInfoFragment extends Fragment {
     private TextView phoneNum;
     private TextView openTime;
     private TextView chatTime;
-
+    private TextView address;
     private ImageButton setBtn;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.hospital_info_fragment, container, false);
 
-        setBtn=(ImageButton)v.findViewById(R.id.hospital_setting_btn);
+        setBtn=(ImageButton)v.findViewById(R.id.hospital_info_setting_btn);
 
-        name=v.findViewById(R.id.hospital_name);
-        phoneNum=v.findViewById(R.id.hospital_number);
-        openTime=v.findViewById(R.id.hospital_open_time);
-        chatTime=v.findViewById(R.id.hospital_consulting_time);
+        name=v.findViewById(R.id.hospital_info_name);
+        phoneNum=v.findViewById(R.id.hospital_info_number);
+        address=v.findViewById(R.id.hospital_info_address);
+        openTime=v.findViewById(R.id.hospital_info_open_time);
+        chatTime=v.findViewById(R.id.hospital_info_consulting_time);
 
         setBtn.setOnClickListener(new View.OnClickListener(){
             @Override

@@ -55,8 +55,6 @@ public class MatchingMainFragment extends Fragment {
         NetworkTask networkTask=new NetworkTask(url,values);
         networkTask.execute();
 
-
-
         return inflater.inflate(R.layout.matching_main_fragment, container, false);
     }
 

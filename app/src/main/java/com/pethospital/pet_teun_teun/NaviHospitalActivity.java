@@ -32,6 +32,7 @@ import java.util.Arrays;
 
 public class NaviHospitalActivity extends AppCompatActivity implements OnMapReadyCallback {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1000;
+
     private FusedLocationSource locationSource;
 
     @Nullable

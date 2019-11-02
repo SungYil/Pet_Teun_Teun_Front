@@ -13,7 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.pethospital.pet_teun_teun.AlarmActivity;
 import com.pethospital.pet_teun_teun.ConsultSettingActivity;
+import com.pethospital.pet_teun_teun.HospitalSettingActivity;
 import com.pethospital.pet_teun_teun.PetStateViewActivity;
 import com.pethospital.pet_teun_teun.R;
 import com.pethospital.pet_teun_teun.SampleMange;
@@ -31,7 +33,7 @@ public class HospitalMainbottomFragment extends Fragment {
 
     private ImageButton cunsulBtn;
     private ImageButton reserBtn;
-    private ImageButton alarmBtn;
+    private ImageButton systemBtn;
 
     private Bundle bundle;
 
@@ -44,7 +46,7 @@ public class HospitalMainbottomFragment extends Fragment {
 
         cunsulBtn=v.findViewById(R.id.hospital_consulting_btn);
         reserBtn=v.findViewById(R.id.hospital_resver_confirm_btn);
-        alarmBtn=v.findViewById(R.id.hospital_alarm_btn);
+        systemBtn=v.findViewById(R.id.hospital_main_setting_btn);
 
         cunsulBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -56,14 +58,14 @@ public class HospitalMainbottomFragment extends Fragment {
         reserBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent=new Intent(getActivity(), ConsultSettingActivity.class);
+                Intent intent=new Intent(getActivity(), AlarmActivity.class);
                 startActivity(intent);
             }
         });
-        alarmBtn.setOnClickListener(new View.OnClickListener(){
+        systemBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent=new Intent(getActivity(), ConsultSettingActivity.class);
+                Intent intent=new Intent(getActivity(), HospitalSettingActivity.class);
                 startActivity(intent);
             }
         });

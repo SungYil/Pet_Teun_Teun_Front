@@ -56,11 +56,11 @@
 
     </LinearLayout>
 
-    <Button
+   <!-- <Button
         android:id="@+id/vaccin_detail_view_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorWhite"
         android:background="@drawable/button_selector"
-        android:text="상세조회"></Button>
+        android:text="상세조회"></Button>-->
 </LinearLayout>

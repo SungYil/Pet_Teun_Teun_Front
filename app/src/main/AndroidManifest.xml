@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="k9wjago0ne" />
         <activity android:name=".SearchActivity"></activity>
         <activity android:name=".MainActivity">
         </activity>
@@ -32,7 +35,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".HospitalMainActivity">
-
         </activity>
         <activity android:name=".ConsultSettingActivity">
         </activity>
@@ -40,7 +42,6 @@
         <activity android:name=".HospitalSettingActivity" />
         <activity android:name=".AlarmActivity" />
         <activity android:name=".MyPostActivity" />
-        <activity android:name=".NaviHospitalActivity" />
         <activity
             android:name=".DetailPostActivity"
             android:label="@string/title_activity_detail_post"
@@ -50,10 +51,8 @@
         <activity android:name=".JoinUser2Activity" />
         <activity android:name=".ReserveActivity" />
         <activity android:name=".BoardActivity" />
+        <activity android:name=".NaviHospitalActivity" />
 
-        <meta-data
-            android:name="com.naver.maps.map.CLIENT_ID"
-            android:value="k9wjago0ne" />
     </application>
 
 </manifest>

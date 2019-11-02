@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                 String url=getString(R.string.url)+"login.do";
                 NetworkTask networkTask=new NetworkTask(url,values);
                 networkTask.execute();
-
+                intent.putExtra("type","hospital");
                 /*if(check==1) {
                     intent.putExtra("type","user");
                     startActivity(intent);

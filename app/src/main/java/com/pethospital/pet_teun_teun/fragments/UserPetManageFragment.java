@@ -86,7 +86,14 @@ public class UserPetManageFragment extends Fragment {
         hospital.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                ((MainActivity)getActivity()).replaceFragment(new MatchingMainFragment(),R.id.hospitalItem);
+                Fragment frg=new MatchingMainFragment();
+                Bundle temp=new Bundle();
+                temp.putString("petName",bundle.getString("petName"));
+                temp.putString("adopt",bundle.getString("adopt"));
+                temp.putString("birth",bundle.getString("birth"));
+                temp.putString("species",bundle.getString("species"));
+                frg.setArguments(temp);
+                ((MainActivity)getActivity()).replaceFragment(frg,R.id.hospitalItem);
             }
         });
 
