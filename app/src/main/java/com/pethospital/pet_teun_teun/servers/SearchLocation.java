@@ -27,7 +27,7 @@ public class SearchLocation {
 
     public SearchLocation(){
         this.clientID="k9wjago0ne";
-        this.clientSecret="akwpCdqlkfnwAa4VcUJD2R6tgDP6hBEb684O3NEU";
+        this.clientSecret="KehzEENgrzC3ODbnsV2fSTRYPV4kRLKG4Fqtt43T";
     }
 
     public ArrayList<JSONObject> searchLocation(String location,Double lon,Double lat){

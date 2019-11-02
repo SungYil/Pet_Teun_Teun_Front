@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -26,6 +27,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.pethospital.pet_teun_teun.HospitalDetailActivity;
+import com.pethospital.pet_teun_teun.MainActivity;
 import com.pethospital.pet_teun_teun.NaviHospitalActivity;
 import com.pethospital.pet_teun_teun.R;
 import com.pethospital.pet_teun_teun.adapters.ManageAdapter;
@@ -52,6 +55,8 @@ public class MatchingMapFragment extends Fragment {
 
     private SearchLocation searchs;
 
+    private MatchingMapAdapter myAdap;
+
     private Double curLon;
     private Double curLat;
 
@@ -65,6 +70,23 @@ public class MatchingMapFragment extends Fragment {
         favorBtn=v.findViewById(R.id.favorite_button);
 
         fragManager=getChildFragmentManager();
+
+        mapList.setOnItemClickListener((new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // adapter.getItem(position)의 return 값은 Object 형
+                // 실제 Item의 자료형은 CustomDTO 형이기 때문에
+                // 형변환을 시켜야 getResId() 메소드를 호출할 수 있습니다.
+                MatchingViewItem item= ((MatchingViewItem)myAdap.getItem(position));
+
+                // new Intent(현재 Activity의 Context, 시작할 Activity 클래스)
+                Intent intent = new Intent(v.getContext(), HospitalDetailActivity.class);
+                intent.putExtra("hosName", item.getName());
+                intent.putExtra("phone",item.getPhoneNum());
+                intent.putExtra("location",item.getOpenTime());
+                startActivity(intent);
+            }
+        }));
 
         bigHosBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -114,7 +136,6 @@ public class MatchingMapFragment extends Fragment {
             {
                 case R.id.big_hospital_button:
                     dataSetting(searchs.searchLocation("동물의료센터",curLon,curLat));
-
                     break;
                 case R.id.open_hospital_button:
                     dataSetting(searchs.searchLocation("24시동물병원",curLon,curLat));
@@ -129,7 +150,7 @@ public class MatchingMapFragment extends Fragment {
     }
 
     private void dataSetting(ArrayList<JSONObject> ary){
-        MatchingMapAdapter myAdap=new MatchingMapAdapter();
+        myAdap=new MatchingMapAdapter();
 
         try {
             for (int i = 0; i < ary.size(); ++i) {

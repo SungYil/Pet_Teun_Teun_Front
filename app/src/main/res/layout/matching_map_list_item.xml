@@ -24,7 +24,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="138dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
@@ -61,7 +61,7 @@
                 style="?android:attr/ratingBarStyleIndicator"
                 ></RatingBar>
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
@@ -84,7 +84,7 @@
                     android:textColor="@color/colorWhite"
                     android:background="@drawable/button_selector"
                     android:text="예약하기"></Button>
-            </LinearLayout>
+            </LinearLayout>-->
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

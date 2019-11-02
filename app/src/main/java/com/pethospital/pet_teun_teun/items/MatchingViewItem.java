@@ -4,6 +4,9 @@ public class MatchingViewItem {
     private String name;
     private String km;
     private String phoneNum;
+    /**
+     * 오픈타임 아니다 바꿔야한다.
+     */
     private String openTime;
     private int rating;
 
