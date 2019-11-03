@@ -58,7 +58,7 @@ public class MatchingMapFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.matching_map_fragment, container, false);
 
-        mapList=(ListView)v.findViewById(R.id.matching_map_list);
+        mapList= v.findViewById(R.id.matching_map_list);
         bigHosBtn=v.findViewById(R.id.big_hospital_button);
         tfBtn=v.findViewById(R.id.open_hospital_button);
         myPetBtn=v.findViewById(R.id.my_pet_hospital_button);

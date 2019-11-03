@@ -48,10 +48,10 @@ public class ManageAdapter extends BaseAdapter {
         }
 
         /* 'list_item'에 정의된 위젯에 대한 참조 획득 */
-        ImageView listImage = (ImageView) convertView.findViewById(R.id.list_image) ;
-        TextView listName = (TextView) convertView.findViewById(R.id.list_item_name) ;
-        TextView listSubName = (TextView) convertView.findViewById(R.id.list_item_sub_name) ;
-        TextView listContents=(TextView)convertView.findViewById(R.id.list_item_content);
+        ImageView listImage = convertView.findViewById(R.id.list_image);
+        TextView listName = convertView.findViewById(R.id.list_item_name);
+        TextView listSubName = convertView.findViewById(R.id.list_item_sub_name);
+        TextView listContents= convertView.findViewById(R.id.list_item_content);
 
         /* 각 리스트에 뿌려줄 아이템을 받아오는데 mMyItem 재활용 */
         ManageViewItem myItem = getItem(position);

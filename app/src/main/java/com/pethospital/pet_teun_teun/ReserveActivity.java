@@ -20,7 +20,7 @@ public class ReserveActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserve);
-        doctorSpinner=(Spinner)findViewById(R.id.reserve_doctor_dropdown);
+        doctorSpinner= findViewById(R.id.reserve_doctor_dropdown);
         String[] str=getResources().getStringArray(R.array.doctor_list);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.spinner_doctor,str);
         //adapter.setDropDownViewResource(R.layout.spinner_doctor);

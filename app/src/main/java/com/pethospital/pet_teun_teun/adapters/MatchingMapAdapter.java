@@ -47,11 +47,11 @@ public class MatchingMapAdapter extends BaseAdapter {
 
         }
         /* 'list_item'에 정의된 위젯에 대한 참조 획득 */
-        RatingBar listRating=(RatingBar)convertView.findViewById(R.id.matching_item_rating);
-        TextView listOpenTime = (TextView) convertView.findViewById(R.id.matching_item_time);
-        TextView listName = (TextView) convertView.findViewById(R.id.matching_item_name);
-        TextView listKm = (TextView) convertView.findViewById(R.id.matching_item_km);
-        TextView listNum = (TextView) convertView.findViewById(R.id.matching_item_num);
+        RatingBar listRating= convertView.findViewById(R.id.matching_item_rating);
+        TextView listOpenTime = convertView.findViewById(R.id.matching_item_time);
+        TextView listName = convertView.findViewById(R.id.matching_item_name);
+        TextView listKm = convertView.findViewById(R.id.matching_item_km);
+        TextView listNum = convertView.findViewById(R.id.matching_item_num);
 
         /* 각 리스트에 뿌려줄 아이템을 받아오는데 mMyItem 재활용 */
         MatchingViewItem myItem = getItem(position);

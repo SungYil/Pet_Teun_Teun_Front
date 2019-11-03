@@ -22,9 +22,9 @@ public class UserVaccinActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_vaccine_activity);
 
-        backButton=(ImageButton)findViewById(R.id.vaccin_back_button);
+        backButton= findViewById(R.id.vaccin_back_button);
 
-        vaccineList=(ListView)findViewById(R.id.user_vaccine_list);
+        vaccineList= findViewById(R.id.user_vaccine_list);
 
         dataSetting();
 

@@ -10,6 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -86,7 +87,7 @@ public class HttpClient {
             OutputStream outputStream = null;
             try {
                 outputStream = connection.getOutputStream();
-                outputStream.write(parameter.getBytes("UTF-8"));
+                outputStream.write(parameter.getBytes(StandardCharsets.UTF_8));
                 outputStream.flush();
             } catch (IOException e) {
                 e.printStackTrace();

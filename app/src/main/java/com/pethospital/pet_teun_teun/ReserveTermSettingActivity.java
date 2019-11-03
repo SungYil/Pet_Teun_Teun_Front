@@ -14,7 +14,7 @@ public class ReserveTermSettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserve_term_setting);
 
-        backBtn=(ImageButton)findViewById(R.id.reservation_setting_back_btn);
+        backBtn= findViewById(R.id.reservation_setting_back_btn);
 
         backBtn.setOnClickListener(new View.OnClickListener(){
             @Override

@@ -2,7 +2,9 @@ package com.pethospital.pet_teun_teun.adapters;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,11 +48,11 @@ public class ReserveCheckAdapter extends BaseAdapter {
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        TextView nameTv=(TextView)convertView.findViewById(R.id.reserve_check_item_customer);
-        TextView typeTv=(TextView)convertView.findViewById(R.id.reserve_check_item_type);
-        TextView dateTv=(TextView)convertView.findViewById(R.id.reserve_check_item_time);
-        TextView careTypeTv=(TextView)convertView.findViewById(R.id.reserve_check_item_care_type);
-        Button cancelBtn=(Button)convertView.findViewById(R.id.reserve_check_item_cancel_btn);
+        TextView nameTv= convertView.findViewById(R.id.reserve_check_item_customer);
+        TextView typeTv= convertView.findViewById(R.id.reserve_check_item_type);
+        TextView dateTv= convertView.findViewById(R.id.reserve_check_item_time);
+        TextView careTypeTv= convertView.findViewById(R.id.reserve_check_item_care_type);
+        Button cancelBtn= convertView.findViewById(R.id.reserve_check_item_cancel_btn);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         ReserveCheckItem item=reservesList.get(position);
@@ -65,11 +67,14 @@ public class ReserveCheckAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 String removeID=reservesList.get(position).getId();//삭제할아이디
-                reservesList.remove(position);
-                notifyDataSetChanged();
-                //new NetworkProcss().execute();
+                ContentValues values=new ContentValues();
+                SharedPreferences preferences=context.getSharedPreferences("login",Context.MODE_PRIVATE);
+                String memberID=preferences.getString("id","");
+                values.put("reserveID",removeID);
+                values.put("memberID",memberID);
                 //통신해서 서버에 해당 id의 예약이 사라졋다고 알려주자.
-                Toast.makeText(context,removeID+"",Toast.LENGTH_LONG).show();
+                String url=context.getString(R.string.url)+"cancel.do";
+                new NetworkProcss(url,values,position).execute();
             }
         });
         return convertView;
@@ -94,32 +99,17 @@ public class ReserveCheckAdapter extends BaseAdapter {
 
         reservesList.add(item);
     }
-    private class deleteProcess extends AsyncTask<Void, Void, String>{
-        private String url;
-        private ContentValues values;
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
 
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-        }
-
-        @Override
-        protected String doInBackground(Void... voids) {
-            return null;
-        }
-    }
-    public class NetworkProcss extends AsyncTask<Void, Void, String> {
+    private class NetworkProcss extends AsyncTask<Void, Void, String> {
 
         private String url;
         private ContentValues values;
+        private int removeIndex;
 
-        public NetworkProcss(String url, ContentValues values) {
+        public NetworkProcss(String url, ContentValues values,int removeIndex) {
             this.url = url;
             this.values = values;
+            this.removeIndex=removeIndex;
         }
 
         @Override
@@ -134,13 +124,16 @@ public class ReserveCheckAdapter extends BaseAdapter {
             String result; // 요청 결과를 저장할 변수.
             RequestHttpURLConnection requestHttpURLConnection=new RequestHttpURLConnection();
             result = requestHttpURLConnection.request(url, values); // 해당 URL로 부터 결과물을 얻어온다.
-
             return result;
         }
 
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            if(s.equals("ok")== true){
+                reservesList.remove(removeIndex);
+                notifyDataSetChanged();
+            }
         }
 
     }

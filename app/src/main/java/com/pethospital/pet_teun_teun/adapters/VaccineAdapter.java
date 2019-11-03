@@ -48,11 +48,11 @@ public class VaccineAdapter extends BaseAdapter {
 
         }
         /* 'list_item'에 정의된 위젯에 대한 참조 획득 */
-        ImageView listImage = (ImageView) convertView.findViewById(R.id.vaccin_img);
-        TextView listDate = (TextView) convertView.findViewById(R.id.vaccin_date);
-        TextView listName = (TextView) convertView.findViewById(R.id.vaccin_name);
-        TextView listSubName = (TextView) convertView.findViewById(R.id.vaccin_sub_name);
-        TextView listWon=(TextView)convertView.findViewById(R.id.vaccin_won);
+        ImageView listImage = convertView.findViewById(R.id.vaccin_img);
+        TextView listDate = convertView.findViewById(R.id.vaccin_date);
+        TextView listName = convertView.findViewById(R.id.vaccin_name);
+        TextView listSubName = convertView.findViewById(R.id.vaccin_sub_name);
+        TextView listWon= convertView.findViewById(R.id.vaccin_won);
 
         /* 각 리스트에 뿌려줄 아이템을 받아오는데 mMyItem 재활용 */
         VaccineViewItem myItem = getItem(position);

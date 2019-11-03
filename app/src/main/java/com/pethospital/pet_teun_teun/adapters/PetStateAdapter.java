@@ -49,10 +49,10 @@ public class PetStateAdapter extends BaseAdapter {
 
         }
         /* 'list_item'에 정의된 위젯에 대한 참조 획득 */
-        ImageView listImage = (ImageView) convertView.findViewById(R.id.pet_state_icon);
-        TextView listDate = (TextView) convertView.findViewById(R.id.pet_state_date);
-        TextView listName = (TextView) convertView.findViewById(R.id.pet_state_name);
-        TextView listSubName = (TextView) convertView.findViewById(R.id.pet_state_sub_name);
+        ImageView listImage = convertView.findViewById(R.id.pet_state_icon);
+        TextView listDate = convertView.findViewById(R.id.pet_state_date);
+        TextView listName = convertView.findViewById(R.id.pet_state_name);
+        TextView listSubName = convertView.findViewById(R.id.pet_state_sub_name);
 
         /* 각 리스트에 뿌려줄 아이템을 받아오는데 mMyItem 재활용 */
         PetStateViewItem myItem = getItem(position);

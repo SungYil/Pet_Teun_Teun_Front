@@ -21,7 +21,7 @@ public class MyPostActivity extends AppCompatActivity {
 
         postAdapter=new PostAdapter();
 
-        listView=(ListView)findViewById(R.id.my_post_post_list_view);
+        listView= findViewById(R.id.my_post_post_list_view);
         listView.setAdapter(postAdapter);
 
         SampleMange sample=new SampleMange();

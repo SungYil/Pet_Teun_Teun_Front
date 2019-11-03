@@ -23,7 +23,7 @@ public class DetailPostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_post);
 
-        listView=(ListView)findViewById(R.id.detail_comment_list_view);
+        listView= findViewById(R.id.detail_comment_list_view);
         commentAdapter=new CommentAdapter();
 
         listView.setAdapter(commentAdapter);
