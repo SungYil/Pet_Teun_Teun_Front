@@ -21,9 +21,9 @@ public class HospitalSettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hospital_setting);
 
-        backBtn=(ImageButton)findViewById(R.id.hospital_setting_back_btn);
-        reserSetBtn=(Button)findViewById(R.id.hosptal_setting_reserve_term_btn);
-        consulSetBtn=(Button)findViewById(R.id.hospital_setting_consert_btn);
+        backBtn= findViewById(R.id.hospital_setting_back_btn);
+        reserSetBtn= findViewById(R.id.hosptal_setting_reserve_term_btn);
+        consulSetBtn= findViewById(R.id.hospital_setting_consert_btn);
 
         backBtn.setOnClickListener(new View.OnClickListener(){
             @Override

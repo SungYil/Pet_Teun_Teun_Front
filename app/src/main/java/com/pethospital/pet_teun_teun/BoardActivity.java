@@ -19,7 +19,7 @@ public class BoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.board_page);
 
-        listView=(ListView)findViewById(R.id.board_post_list_view);
+        listView= findViewById(R.id.board_post_list_view);
         postAdapter=new PostAdapter();
         listView.setAdapter(postAdapter);
 

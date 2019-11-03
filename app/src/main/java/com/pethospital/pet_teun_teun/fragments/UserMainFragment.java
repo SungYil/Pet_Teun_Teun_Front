@@ -102,9 +102,7 @@ public class UserMainFragment extends Fragment {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            //doInBackground()로 부터 리턴된 값이 onPostExecute()의 매개변수로 넘어오므로 s를 출력한다.
-            Toast.makeText(getActivity(), s, Toast.LENGTH_LONG).show();
-
+            //doInBackground()로 부터 리턴된 값이 onPostExecute()의 매개변수로 넘어오므로 s를 출력한다
            try {
                 JSONArray json=new JSONArray(s);
                 //json ary에 병원 또는 유저에따른 상단 프래그먼트 정보

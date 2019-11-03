@@ -42,13 +42,13 @@ public class PostAdapter extends BaseAdapter {
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        TextView indextv =(TextView)convertView.findViewById(R.id.post_index);
-        TextView titletv = (TextView) convertView.findViewById(R.id.post_title) ;
-        TextView writertv = (TextView) convertView.findViewById(R.id.post_writer_nickname) ;
-        TextView datetv = (TextView)convertView.findViewById(R.id.post_date);
-        TextView commentCnttv= (TextView)convertView.findViewById(R.id.post_comment_cnt);
-        TextView viewCnttv = (TextView)convertView.findViewById(R.id.post_view_cnt);
-        ImageView iconiv = (ImageView) convertView.findViewById(R.id.post_img_view) ;
+        TextView indextv = convertView.findViewById(R.id.post_index);
+        TextView titletv = convertView.findViewById(R.id.post_title);
+        TextView writertv = convertView.findViewById(R.id.post_writer_nickname);
+        TextView datetv = convertView.findViewById(R.id.post_date);
+        TextView commentCnttv= convertView.findViewById(R.id.post_comment_cnt);
+        TextView viewCnttv = convertView.findViewById(R.id.post_view_cnt);
+        ImageView iconiv = convertView.findViewById(R.id.post_img_view);
        // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         Post item = postList.get(position);
 

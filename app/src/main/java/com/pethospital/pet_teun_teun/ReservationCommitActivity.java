@@ -20,9 +20,9 @@ public class ReservationCommitActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reservation_commit_list_activity);
 
-        backButton=(ImageButton)findViewById(R.id.reservation_back_button);
+        backButton= findViewById(R.id.reservation_back_button);
 
-        commitList=(ListView)findViewById((R.id.reservation_commit_list));
+        commitList= findViewById((R.id.reservation_commit_list));
 
         dataSetting();
 

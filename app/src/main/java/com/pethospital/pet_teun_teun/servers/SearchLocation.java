@@ -33,7 +33,7 @@ public class SearchLocation {
     public ArrayList<JSONObject> searchLocation(String location,Double lon,Double lat){
         String apiURL="https://naveropenapi.apigw.ntruss.com/map-place/v1/search?query=동물병원&coordinate=127.12345,37.12345";
         try {
-            String text = URLEncoder.encode(location.toString(), "UTF-8");
+            String text = URLEncoder.encode(location, "UTF-8");
             String coor = URLEncoder.encode(lon + "," + lat, "UTF-8");
             apiURL = "https://naveropenapi.apigw.ntruss.com/map-place/v1/search?query=" + text + "&coordinate=" + coor;
         }catch(Exception e){

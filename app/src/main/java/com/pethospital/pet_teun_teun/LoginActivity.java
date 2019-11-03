@@ -1,9 +1,12 @@
 package com.pethospital.pet_teun_teun;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                 values.put("id", id);
                 values.put("password", password);
                 String url=getString(R.string.url)+"login.do";
-                NetworkTask networkTask=new NetworkTask(url,values);
+                NetworkTask networkTask=new NetworkTask(getApplicationContext(),id,url,values);
                 networkTask.execute();
                 intent.putExtra("type","hospital");
                 /*if(check==1) {
@@ -71,9 +74,11 @@ public class LoginActivity extends AppCompatActivity {
 
         private String url;
         private ContentValues values;
-
-        public NetworkTask(String url, ContentValues values) {
-
+        private Context context;
+        private String id;
+        public NetworkTask(Context context,String id, String url, ContentValues values) {
+            this.context=context;
+            this.id=id;
             this.url = url;
             this.values = values;
         }
@@ -98,12 +103,16 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             //doInBackground()로 부터 리턴된 값이 onPostExecute()의 매개변수로 넘어오므로 s를 출력한다.
-            Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
 
             try {
                 JSONObject json = new JSONObject(s);
                 if("ok".equals(json.getString("msg"))){
-
+                    SharedPreferences.Editor editor=context.getSharedPreferences("login",MODE_PRIVATE).edit();
+                    Toast.makeText(getApplicationContext(), id+"", Toast.LENGTH_LONG).show();
+                    //Log.i("id잘 나옴?",id);
+                    editor.putString("id",id);
+                    editor.apply();
                     if("hospital".equals(json.getString("user"))){
                         intent.putExtra("type","hospital");
                         startActivity(intent);

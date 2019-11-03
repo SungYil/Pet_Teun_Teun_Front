@@ -48,11 +48,11 @@ public class CommitReservationAdapter extends BaseAdapter {
         }
         //Toast.makeText(context, "asdfasdfasdf", Toast.LENGTH_SHORT).show();
         /* 'list_item'에 정의된 위젯에 대한 참조 획득 */
-        ImageView listImage = (ImageView) convertView.findViewById(R.id.reservation_list_image);
-        TextView listdate = (TextView) convertView.findViewById(R.id.reservation_list_date);
-        TextView listName = (TextView) convertView.findViewById(R.id.reservation_list_name);
-        TextView listSubName = (TextView) convertView.findViewById(R.id.reservation_list_sub_name);
-        TextView listContents = (TextView) convertView.findViewById(R.id.reservation_list_contents);
+        ImageView listImage = convertView.findViewById(R.id.reservation_list_image);
+        TextView listdate = convertView.findViewById(R.id.reservation_list_date);
+        TextView listName = convertView.findViewById(R.id.reservation_list_name);
+        TextView listSubName = convertView.findViewById(R.id.reservation_list_sub_name);
+        TextView listContents = convertView.findViewById(R.id.reservation_list_contents);
 
         /* 각 리스트에 뿌려줄 아이템을 받아오는데 mMyItem 재활용 */
         CommitViewItem myItem = getItem(position);

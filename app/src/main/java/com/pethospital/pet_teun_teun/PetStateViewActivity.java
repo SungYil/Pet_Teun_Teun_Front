@@ -21,9 +21,9 @@ public class PetStateViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pet_state_activity);
 
-        backButton=(ImageButton)findViewById(R.id.pet_state_back_button);
+        backButton= findViewById(R.id.pet_state_back_button);
 
-        petList=(ListView)findViewById(R.id.pet_state_list);
+        petList= findViewById(R.id.pet_state_list);
 
         dataSetting();
 

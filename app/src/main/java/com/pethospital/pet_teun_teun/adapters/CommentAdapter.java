@@ -42,10 +42,10 @@ public class CommentAdapter extends BaseAdapter {
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-       ImageView writerImg=(ImageView)convertView.findViewById(R.id.comment_writer_img);
-        TextView writerNicknametv= (TextView) convertView.findViewById(R.id.comment_writer_nickname);
-        TextView commenttv=(TextView)convertView.findViewById(R.id.comment_contents_area);
-        TextView datetv=(TextView)convertView.findViewById(R.id.comment_date);
+       ImageView writerImg= convertView.findViewById(R.id.comment_writer_img);
+        TextView writerNicknametv= convertView.findViewById(R.id.comment_writer_nickname);
+        TextView commenttv= convertView.findViewById(R.id.comment_contents_area);
+        TextView datetv= convertView.findViewById(R.id.comment_date);
        // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         Comment item = commentList.get(position);
 

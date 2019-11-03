@@ -60,6 +60,7 @@ public class ReserveActivity extends AppCompatActivity {
                 //i가 선택된 index,l이 id?
                 Log.i("내용",doctorSpinner.getSelectedItem().toString());
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 Log.i("내용","없다.");

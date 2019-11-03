@@ -48,12 +48,12 @@ public class UserPetManageFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v= inflater.inflate(R.layout.user_pet_manage_fragment, container, false);
-        stateView=(ImageButton)v.findViewById(R.id.state_view);
-        reserConfirm=(ImageButton)v.findViewById(R.id.reservation_confirm);
-        vaccin=(ImageButton)v.findViewById(R.id.vaccin_confirm);
-        hospital=(ImageButton)v.findViewById(R.id.hospital_match);
+        stateView= v.findViewById(R.id.state_view);
+        reserConfirm= v.findViewById(R.id.reservation_confirm);
+        vaccin= v.findViewById(R.id.vaccin_confirm);
+        hospital= v.findViewById(R.id.hospital_match);
 
-        manageList=(ListView)v.findViewById(R.id.manage_list);
+        manageList= v.findViewById(R.id.manage_list);
 
         bundle=getArguments();
 

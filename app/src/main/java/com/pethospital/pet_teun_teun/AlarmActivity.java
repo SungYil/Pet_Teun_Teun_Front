@@ -21,7 +21,7 @@ public class AlarmActivity extends AppCompatActivity {
         setContentView(R.layout.activity_alarm);
 
         //alarm 리스트뷰 찾기
-        alarmList=(ListView)findViewById(R.id.alarm_alarm_list_view);
+        alarmList= findViewById(R.id.alarm_alarm_list_view);
         //어뎁터 생성
         alarmAdapter=new AlarmAdapter();
         //어뎁터 연결
