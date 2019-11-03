@@ -130,6 +130,8 @@ public class ReserveCheckAdapter extends BaseAdapter {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            //Toast.makeText(, "", Toast.LENGTH_SHORT).show();
+            Log.i("result",s);
             if(s.equals("ok")== true){
                 reservesList.remove(removeIndex);
                 notifyDataSetChanged();
