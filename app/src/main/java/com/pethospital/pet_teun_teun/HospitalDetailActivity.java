@@ -92,10 +92,19 @@ public class HospitalDetailActivity extends AppCompatActivity {
                         name.setText(json.getString("name"));
                         loca.setText(json.getString("location"));
                         phone.setText(json.getString("phone"));
+
                         reserBtn.setOnClickListener(new View.OnClickListener(){
                             @Override
                             public void onClick(View v){
                                 Intent intent=new Intent(getApplicationContext(), ReserveActivity.class);
+                                try {
+                                    intent.putExtra("name", json.getString("name"));
+                                    intent.putExtra("location", json.getString("location"));
+                                    intent.putExtra("phone", json.getString("phone"));
+                                }catch(Exception e){
+                                    e.printStackTrace();
+                                    intent.putExtra("msg","no");
+                                }
                                 startActivity(intent);
                             }
                         });

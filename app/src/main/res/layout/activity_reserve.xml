@@ -8,13 +8,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <ImageButton
-            android:id="@+id/navi_back_button"
+            android:id="@+id/reserve_back_button"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/back_space"
             style="?android:attr/borderlessButtonStyle"
             android:scaleType="fitCenter"
             ></ImageButton>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -97,10 +97,10 @@ public class MatchingMainFragment extends Fragment {
                 JSONObject attr=json.getJSONObject(0);
                 if("ok".equals(attr.getString("msg"))){
 
-                        data.putString("petName",attr.getString("petName"));
-                        data.putString("adopt",attr.getString("adopt"));
-                        data.putString("birth",attr.getString("birth"));
-                        data.putString("species",attr.getString("species"));
+                    data.putString("petName",attr.getString("petName"));
+                    data.putString("adopt",attr.getString("adopt"));
+                    data.putString("birth",attr.getString("birth"));
+                    data.putString("species",attr.getString("species"));
 
                     //데이터 세팅
                     userInfo.setArguments(data);
