@@ -1,6 +1,8 @@
 package com.pethospital.pet_teun_teun.adapters;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 
 import com.pethospital.pet_teun_teun.R;
 import com.pethospital.pet_teun_teun.items.ReserveCheckItem;
+import com.pethospital.pet_teun_teun.servers.RequestHttpURLConnection;
 
 import java.util.ArrayList;
 
@@ -64,7 +67,9 @@ public class ReserveCheckAdapter extends BaseAdapter {
                 String removeID=reservesList.get(position).getId();//삭제할아이디
                 reservesList.remove(position);
                 notifyDataSetChanged();
+                //new NetworkProcss().execute();
                 //통신해서 서버에 해당 id의 예약이 사라졋다고 알려주자.
+                Toast.makeText(context,removeID+"",Toast.LENGTH_LONG).show();
             }
         });
         return convertView;
@@ -88,5 +93,55 @@ public class ReserveCheckAdapter extends BaseAdapter {
         ReserveCheckItem item=new ReserveCheckItem(reserveCheckItem);
 
         reservesList.add(item);
+    }
+    private class deleteProcess extends AsyncTask<Void, Void, String>{
+        private String url;
+        private ContentValues values;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+        }
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            return null;
+        }
+    }
+    public class NetworkProcss extends AsyncTask<Void, Void, String> {
+
+        private String url;
+        private ContentValues values;
+
+        public NetworkProcss(String url, ContentValues values) {
+            this.url = url;
+            this.values = values;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            //progress bar를 보여주는 등등의 행위
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            String result; // 요청 결과를 저장할 변수.
+            RequestHttpURLConnection requestHttpURLConnection=new RequestHttpURLConnection();
+            result = requestHttpURLConnection.request(url, values); // 해당 URL로 부터 결과물을 얻어온다.
+
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+        }
+
     }
 }
