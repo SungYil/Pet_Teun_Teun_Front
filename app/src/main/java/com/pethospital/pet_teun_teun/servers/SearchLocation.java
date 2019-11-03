@@ -75,8 +75,47 @@ public class SearchLocation {
             ContentValues values = new ContentValues();
             values.put("url", apiURL);
             NetworkTask networkTask=new NetworkTask(values);
-            networkTask.execute().get();
+            String load=networkTask.execute().get();
+            JSONObject obj=new JSONObject(load);
+            if(0==obj.getInt("code")){
+                JSONArray loads=obj.getJSONObject("route").getJSONArray("trafast").getJSONObject(0).getJSONArray("path");
 
+                for(int i=0;i<loads.length();++i) {
+                    JSONArray spot=loads.getJSONArray(i);
+                    list.add(new LatLng(spot.getDouble(1),spot.getDouble(0)));
+                }
+            }
+            //결과값 롱 랫 순서
+            //뿌릴땐 랫 롱
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+    public ArrayList<String> searchDirectionGuide(Double stLng, Double stLat, Double edLng, Double edLat){
+        ArrayList<String> list=new ArrayList<String>();
+
+        String apiURL="https://naveropenapi.apigw.ntruss.com/map-direction-15/v1/driving?start="+stLng+","+stLat+"&goal=127.12345,37.12345&option=trafast";
+        try {
+            String text = URLEncoder.encode(stLng+","+stLat, "UTF-8");
+            String coor = URLEncoder.encode(edLng + "," + edLat, "UTF-8");
+            apiURL = "https://naveropenapi.apigw.ntruss.com/map-direction-15/v1/driving?start=" + text + "&goal=" + coor+"&option=trafast";
+
+            ContentValues values = new ContentValues();
+            values.put("url", apiURL);
+            NetworkTask networkTask=new NetworkTask(values);
+            String load=networkTask.execute().get();
+            JSONObject obj=new JSONObject(load);
+            if(0==obj.getInt("code")){
+                JSONArray loads=obj.getJSONObject("route").getJSONArray("trafast").getJSONObject(0).getJSONArray("guide");
+
+                for(int i=0;i<loads.length();++i) {
+                    JSONObject spot=loads.getJSONObject(i);
+                    list.add(spot.getString("instructions"));
+                }
+            }
             //결과값 롱 랫 순서
             //뿌릴땐 랫 롱
         }catch(Exception e){

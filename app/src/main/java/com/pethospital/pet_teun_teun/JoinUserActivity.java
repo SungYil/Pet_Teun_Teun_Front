@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class JoinUserActivity extends AppCompatActivity {
     EditText edit_id;
     EditText edit_password;
-    EditText edit_date;
+    EditText edit_name;
     EditText edit_phone;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class JoinUserActivity extends AppCompatActivity {
 
         edit_id = findViewById(R.id.join_hospital_edit_id);
         edit_password = findViewById(R.id.join_hospital_edit_password);
-        edit_date = findViewById(R.id.join_hospital_edit_name);
+        edit_name = findViewById(R.id.join_hospital_edit_name);
         edit_phone = findViewById(R.id.join_hospital_edit_phone);
         Button btn_next = findViewById(R.id.join_hospital_btn_submit);
 
@@ -31,7 +31,7 @@ public class JoinUserActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), JoinUser2Activity.class);
                 intent.putExtra("id", edit_id.getText().toString());
                 intent.putExtra("password", edit_password.getText().toString());
-                intent.putExtra("date", edit_date.getText().toString());
+                intent.putExtra("name", edit_name.getText().toString());
                 intent.putExtra("phone", edit_phone.getText().toString());
                 startActivity(intent);
             }
