@@ -11,5 +11,5 @@
     <string name="join_medical">병원 회원용</string>
     <string name="title_activity_reserve">ReserveActivity</string>
     <string name="title_activity_detail_post">DetailPostActivity</string>
-    <string name="url">http://122.46.53.223:8080/Pet_Tuen_Tuen/</string>
+    <string name="url">http://1.231.53.49:2200/Pet_Tuen_Tuen/</string>
 </resources>
