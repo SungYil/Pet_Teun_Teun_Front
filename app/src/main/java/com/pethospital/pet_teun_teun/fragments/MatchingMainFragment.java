@@ -1,6 +1,8 @@
 package com.pethospital.pet_teun_teun.fragments;
 
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -49,6 +51,9 @@ public class MatchingMainFragment extends Fragment {
         matchingMap=new MatchingMapFragment();
 
         ContentValues values = new ContentValues();
+        SharedPreferences preferences=getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
+        String memberID=preferences.getString("id","");
+        values.put("id",memberID);
         //values.put("", id);
         //values.put("password", password);
         String url=getString(R.string.url)+"mainView.do";

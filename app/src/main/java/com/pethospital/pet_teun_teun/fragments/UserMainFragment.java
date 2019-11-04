@@ -1,6 +1,8 @@
 package com.pethospital.pet_teun_teun.fragments;
 
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -54,6 +56,9 @@ public class UserMainFragment extends Fragment {
         ContentValues values = new ContentValues();
         //values.put("", id);
         //values.put("password", password);
+        SharedPreferences preferences=getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
+        String memberID=preferences.getString("id","");
+        values.put("id",memberID);
         String url=getString(R.string.url)+"mainView.do";
         NetworkTask networkTask=new NetworkTask(url,values);
         networkTask.execute();
