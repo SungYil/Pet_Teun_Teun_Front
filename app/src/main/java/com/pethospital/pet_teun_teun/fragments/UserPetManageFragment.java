@@ -51,7 +51,7 @@ public class UserPetManageFragment extends Fragment {
         stateView= v.findViewById(R.id.state_view);
         reserConfirm= v.findViewById(R.id.reservation_confirm);
         vaccin= v.findViewById(R.id.vaccin_confirm);
-        hospital= v.findViewById(R.id.hospital_match);
+        //hospital= v.findViewById(R.id.hospital_match);
 
         manageList= v.findViewById(R.id.manage_list);
 
@@ -71,6 +71,7 @@ public class UserPetManageFragment extends Fragment {
             @Override
             public void onClick(View v){
                 Intent intent=new Intent(getActivity(), ReservationCommitActivity.class);
+                intent.putExtra("data",bundle);
                 startActivity(intent);
             }
         });
@@ -83,7 +84,7 @@ public class UserPetManageFragment extends Fragment {
             }
         });
 
-        hospital.setOnClickListener(new View.OnClickListener(){
+       /* hospital.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Fragment frg=new MatchingMainFragment();
@@ -95,7 +96,7 @@ public class UserPetManageFragment extends Fragment {
                 frg.setArguments(temp);
                 ((MainActivity)getActivity()).replaceFragment(frg,R.id.hospitalItem);
             }
-        });
+        });*/
 
 
         return v;
@@ -109,15 +110,9 @@ public class UserPetManageFragment extends Fragment {
         if(ary!=null){
             for(int i=0;i<ary.size();++i){
                 ManageViewItem item=ary.get(i);
-                myAdap.addItem(item.getIcon(),item.getName(),item.getSubname(),item.getContent());
+                myAdap.addItem(item.getId(),item.getIcon(),item.getName(),item.getSubname(),item.getContent());
             }
         }
-
-        /*myAdap.addItem(ContextCompat.getDrawable(v.getContext(),R.drawable.hospital_icon),"xx병원","내용","이상무");
-        myAdap.addItem(ContextCompat.getDrawable(v.getContext(),R.drawable.hospital_icon),"yy병원","내용","이상무");
-        myAdap.addItem(ContextCompat.getDrawable(v.getContext(),R.drawable.hospital_icon),"ww병원","내용","이상무");
-        myAdap.addItem(ContextCompat.getDrawable(v.getContext(),R.drawable.hospital_icon),"qq병원","내용","이상무");
-        myAdap.addItem(ContextCompat.getDrawable(v.getContext(),R.drawable.hospital_icon),"zz병원","내용","이상무");*/
 
         manageList.setAdapter(myAdap);
     }
@@ -156,22 +151,7 @@ public class UserPetManageFragment extends Fragment {
             Toast.makeText(getActivity(), s, Toast.LENGTH_LONG).show();
 
             try {
-                /*JSONObject json = new JSONObject(s);
-                if("ok".equals(json.getString("msg"))){
-                    petName.setText(json.getString("petName"));
-                    adopt.setText(json.getString("adopt"));
-                    birth.setText(json.getString("birth"));
-                    species.setText(json.getString("species"));
 
-                }else{
-                    petName.setText("empty");
-                    adopt.setText("empty");
-                    birth.setText("empty");
-                    species.setText("empty");
-
-                    Toast.makeText(getActivity(), "데이터 로딩 실패", Toast.LENGTH_LONG).show();
-                }
-*/
             }catch(Exception e){
                 e.printStackTrace();
             }

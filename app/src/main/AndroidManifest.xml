@@ -52,6 +52,8 @@
         <activity android:name=".ReserveActivity" />
         <activity android:name=".BoardActivity" />
         <activity android:name=".NaviHospitalActivity" />
+        <activity android:name=".UserSettingActivity"/>
+        <activity android:name=".PetInfoModifyActivity"/>
 
     </application>
 

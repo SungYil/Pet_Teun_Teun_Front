@@ -1,12 +1,15 @@
 package com.pethospital.pet_teun_teun;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.pethospital.pet_teun_teun.adapters.ReserveCheckAdapter;
 import com.pethospital.pet_teun_teun.servers.RequestHttpURLConnection;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +19,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -28,8 +33,11 @@ public class ReserveActivity extends AppCompatActivity {
     private TextView reserveText;
     private TextView locationText;
     private TextView phoneNum;
-
+    private EditText contents;
+    private EditText reserveTime;
     private ImageButton backBtn;
+    private Button reserveBtn;
+    private Button cancelBtn;
 
     private Intent intent;
     @Override
@@ -44,6 +52,10 @@ public class ReserveActivity extends AppCompatActivity {
         locationText=findViewById(R.id.reserve_hospital_location);
         phoneNum=findViewById(R.id.reserve_hospital_tel);
         backBtn=findViewById(R.id.reserve_back_button);
+        cancelBtn=findViewById(R.id.reserve_cancel_btn);
+        reserveBtn=findViewById(R.id.reserve_reserve_btn);
+        contents=findViewById(R.id.reserve_care_info);
+        reserveTime=findViewById(R.id.reserve_reserve_date);
 
         reserveText.setText(intent.getStringExtra("name"));
         locationText.setText(intent.getStringExtra("location"));
@@ -67,6 +79,29 @@ public class ReserveActivity extends AppCompatActivity {
             }
         });
 
+        reserveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ContentValues values=new ContentValues();
+                SharedPreferences preferences=getApplicationContext().getSharedPreferences("login",Context.MODE_PRIVATE);
+                String memberID=preferences.getString("id","");
+                values.put("id",memberID);
+                values.put("hospitalName",reserveText.getText().toString());
+                values.put("reserveInfo",contents.getText().toString());
+                values.put("reserveTime",reserveTime.getText().toString());
+
+                //통신해서 서버에 해당 id의 예약이 사라졋다고 알려주자.
+                String url=getApplicationContext().getString(R.string.url)+"addReserve.do";
+                new NetworkTask(url,values).execute();
+            }
+        });
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,19 +146,10 @@ public class ReserveActivity extends AppCompatActivity {
             try {
                 JSONObject json = new JSONObject(s);
                 if("ok".equals(json.getString("msg"))){
-
-                    if("hospital".equals(json.getString("user"))){
-                        intent.putExtra("type","hospital");
-                        startActivity(intent);
-                    }else if("user".equals(json.getString("user"))){
-                        intent.putExtra("type","user");
-                        startActivity(intent);
-                    }else{
-
-                    }
+                    onBackPressed();
 
                 }else{
-                    Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "예약 실패", Toast.LENGTH_LONG).show();
                 }
 
             }catch(Exception e){

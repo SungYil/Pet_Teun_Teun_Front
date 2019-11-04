@@ -13,7 +13,7 @@
             style="?android:attr/borderlessButtonStyle"
             android:src="@drawable/back_space"
             android:scaleType="fitCenter"
-            android:id="@+id/hospital_setting_back_btn">
+            android:id="@+id/pet_modify_info_back_btn">
         </ImageButton>
         <TextView
             android:layout_width="wrap_content"
@@ -161,14 +161,14 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="예약하기"
-                android:id="@+id/reserve_reserve_btn">
+                android:text="수정하기"
+                android:id="@+id/pet_modify_info_modify_btn">
             </Button>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="취소하기"
-                android:id="@+id/reserve_cancel_btn">
+                android:id="@+id/pet_modify_info_cancel_btn">
             </Button>
         </LinearLayout>
     </FrameLayout>

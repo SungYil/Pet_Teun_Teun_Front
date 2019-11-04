@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.pethospital.pet_teun_teun.NaviHospitalActivity;
 import com.pethospital.pet_teun_teun.R;
+import com.pethospital.pet_teun_teun.UserSettingActivity;
 
 
 public class UserPetInfoFragment extends Fragment {
@@ -46,7 +47,7 @@ public class UserPetInfoFragment extends Fragment {
         setBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent=new Intent(getActivity(), NaviHospitalActivity.class);
+                Intent intent=new Intent(getActivity(), UserSettingActivity.class);
                 startActivity(intent);
             }
         });

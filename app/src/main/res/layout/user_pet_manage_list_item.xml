@@ -37,12 +37,13 @@
                 android:textSize="18dp"></TextView>
 
             <Button
+                android:id="@+id/user_reserve_cancel_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:textColor="@color/colorWhite"
                 android:background="@drawable/button_selector"
                 android:layout_weight="1"
-                android:text="수정하기"></Button>
+                android:text="취소하기"></Button>
         </LinearLayout>
 
         <TextView

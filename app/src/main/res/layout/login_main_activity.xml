@@ -41,6 +41,8 @@
         android:layout_marginBottom="16dp"
         android:text="@string/login_main_login"
         android:textSize="18sp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/button_selector"
         app:layout_constraintBottom_toTopOf="@+id/login_main_btn_reg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -50,6 +52,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/button_selector"
         android:text="@string/login_main_reg"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"

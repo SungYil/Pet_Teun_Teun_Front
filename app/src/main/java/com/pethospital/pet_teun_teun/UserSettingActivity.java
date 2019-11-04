@@ -1,5 +1,6 @@
 package com.pethospital.pet_teun_teun;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,7 +34,8 @@ public class UserSettingActivity extends AppCompatActivity {
         petModifyBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                onBackPressed();
+                Intent intent=new Intent(getApplicationContext(),PetInfoModifyActivity.class);
+                startActivity(intent);
             }
         });
     }

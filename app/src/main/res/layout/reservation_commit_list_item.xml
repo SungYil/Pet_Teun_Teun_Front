@@ -52,14 +52,14 @@
                 android:textSize="15dp"></TextView>
 
             <Button
-                android:id="@+id/reservation_list_button"
+                android:id="@+id/reservation_cancel_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
                 android:layout_weight="1"
                 android:layout_marginRight="8dp"
                 android:background="@drawable/button_selector"
                 android:textColor="@color/colorWhite"
-                android:text="상세조회"></Button>
+                android:text="취소하기"></Button>
         </LinearLayout>
 
         <TextView

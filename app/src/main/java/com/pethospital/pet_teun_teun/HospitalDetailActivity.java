@@ -109,6 +109,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
                             }
                         });
                     }else{
+                        reserBtn.setVisibility(View.INVISIBLE);
                         name.setText(getIntent().getStringExtra("hosName"));
                         loca.setText(getIntent().getStringExtra("phone"));
                         phone.setText(getIntent().getStringExtra("location"));

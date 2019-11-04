@@ -3,6 +3,7 @@ package com.pethospital.pet_teun_teun.items;
 import android.graphics.drawable.Drawable;
 
 public class CommitViewItem {
+    private String id;
     private Drawable icon;
     private String date;
     private String name;
@@ -16,13 +17,15 @@ public class CommitViewItem {
         this.subName="emp";
         this.contents="emp";
     }
-    public CommitViewItem(Drawable icon, String date, String name, String subName, String contents) {
+    public CommitViewItem(String id,Drawable icon, String date, String name, String subName, String contents) {
+        this.id=id;
         this.icon = icon;
         this.date = date;
         this.name = name;
         this.subName = subName;
         this.contents = contents;
     }
+    public String getId(){return id;}
     public Drawable getIcon() {
         return icon;
     }
@@ -43,6 +46,7 @@ public class CommitViewItem {
         return contents;
     }
 
+    public void setId(String id){this.id=id;}
     public void setIcon(Drawable icon) {
         this.icon = icon;
     }

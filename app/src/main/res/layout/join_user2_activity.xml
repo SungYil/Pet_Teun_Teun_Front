@@ -159,6 +159,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_weight="1.5"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/button_selector"
                 android:text="사진 변경" />
 
         </LinearLayout>
@@ -174,6 +176,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/button_selector"
                 android:text="가입 완료" />
         </LinearLayout>
 

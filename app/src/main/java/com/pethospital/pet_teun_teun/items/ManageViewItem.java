@@ -7,6 +7,7 @@ import android.os.Parcelable;
 import com.pethospital.pet_teun_teun.R;
 
 public class ManageViewItem implements Parcelable {
+    private String id;
     private Drawable icon;
     private String name;
     private String subname;
@@ -19,17 +20,19 @@ public class ManageViewItem implements Parcelable {
         this.content="emp";
     }
     public ManageViewItem(Parcel in){
+        this.id=in.readString();
         this.name=in.readString();
         this.subname=in.readString();
         this.content=in.readString();
     }
-    public ManageViewItem(Drawable icon, String name, String subname, String content) {
+    public ManageViewItem(String id,Drawable icon, String name, String subname, String content) {
+        this.id=id;
         this.icon = icon;
         this.name = name;
         this.subname = subname;
         this.content = content;
     }
-
+    public String getId(){return id;}
     public Drawable getIcon() {
         return icon;
     }
@@ -45,6 +48,7 @@ public class ManageViewItem implements Parcelable {
     public String getContent() {
         return content;
     }
+    public void setId(String id){this.id=id;}
 
     public void setIcon(Drawable icon) {
         this.icon = icon;
@@ -81,6 +85,7 @@ public class ManageViewItem implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
         dest.writeString(name);
         dest.writeString(subname);
         dest.writeString(content);

@@ -76,4 +76,5 @@
             android:id="@+id/reserve_check_item_cancel_btn">
         </Button>
     </LinearLayout>
+
 </LinearLayout>

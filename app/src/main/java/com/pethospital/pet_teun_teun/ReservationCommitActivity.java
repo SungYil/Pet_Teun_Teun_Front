@@ -9,12 +9,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.pethospital.pet_teun_teun.adapters.CommitReservationAdapter;
+import com.pethospital.pet_teun_teun.adapters.ManageAdapter;
+import com.pethospital.pet_teun_teun.items.ManageViewItem;
+
+import java.util.List;
 
 public class ReservationCommitActivity extends AppCompatActivity {
 
     private ImageButton backButton;
 
     private ListView commitList;
+
+    private Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +30,8 @@ public class ReservationCommitActivity extends AppCompatActivity {
 
         commitList= findViewById((R.id.reservation_commit_list));
 
+
+        bundle= getIntent().getBundleExtra("data");
         dataSetting();
 
         backButton.setOnClickListener(new View.OnClickListener(){
@@ -35,14 +43,17 @@ public class ReservationCommitActivity extends AppCompatActivity {
     }
 
     private void dataSetting(){
-        CommitReservationAdapter myAdap=new CommitReservationAdapter();
+        CommitReservationAdapter comit=new CommitReservationAdapter();
 
-        myAdap.addItem(ContextCompat.getDrawable(getApplicationContext(),R.drawable.hospital_icon),"19/19/19","xx병원","내용","이상무");
-        myAdap.addItem(ContextCompat.getDrawable(getApplicationContext(),R.drawable.hospital_icon),"19/19/19","yy병원","내용","이상무");
-        myAdap.addItem(ContextCompat.getDrawable(getApplicationContext(),R.drawable.hospital_icon),"19/19/19","ww병원","내용","이상무");
-        myAdap.addItem(ContextCompat.getDrawable(getApplicationContext(),R.drawable.hospital_icon),"19/19/19","qq병원","내용","이상무");
-        myAdap.addItem(ContextCompat.getDrawable(getApplicationContext(),R.drawable.hospital_icon),"19/19/19","zz병원","내용","이상무");
+        List<ManageViewItem> ary= bundle.getParcelableArrayList("list");
 
-        commitList.setAdapter(myAdap);
+        if(ary!=null){
+            for(int i=0;i<ary.size();++i){
+                ManageViewItem item=ary.get(i);
+                comit.addItem(item.getId(),item.getIcon(),"2010/10/10",item.getName(),item.getSubname(),item.getContent());
+            }
+        }
+
+        commitList.setAdapter(comit);
     }
 }

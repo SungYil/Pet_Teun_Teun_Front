@@ -131,10 +131,10 @@ public class UserMainFragment extends Fragment {
                         //하단 프래그먼트 리스트 아이템
                         List<ManageViewItem> ary=new ArrayList<>();
 
-                        for(int i=2;i<json.length();++i){
+                        for(int i=1;i<json.length();++i){
                             JSONObject emp=json.getJSONObject(i);
                             Log.d("============",emp.toString());
-                            ary.add(new ManageViewItem(ContextCompat.getDrawable(v.getContext(),R.drawable.hospital_icon),emp.getString("name"),emp.getString("subName"),emp.getString("contents")));
+                            ary.add(new ManageViewItem(emp.getString("id"),ContextCompat.getDrawable(v.getContext(),R.drawable.hospital_icon),emp.getString("name"),emp.getString("subName"),emp.getString("contents")));
                         }
                         data.putParcelableArrayList("list",(ArrayList<? extends Parcelable>)ary);
                     }
