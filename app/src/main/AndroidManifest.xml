@@ -54,6 +54,8 @@
         <activity android:name=".NaviHospitalActivity" />
         <activity android:name=".UserSettingActivity"/>
         <activity android:name=".PetInfoModifyActivity"/>
+        <activity android:name=".JoinActivity"/>
+        <activity android:name=".JoinHospitalActivity"/>
 
     </application>
 
