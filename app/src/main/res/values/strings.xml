@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Pet_Teun_Teun!</string>
+    <string name="login_main_title">펫 튼튼</string>
+    <string name="login_main_login">로그인</string>
+    <string name="login_main_reg">회원가입</string>
+    <string name="login_email_hint">이메일</string>
+    <string name="login_password_hint">비밀번호</string>
+    <string name="login_forget">아이디/비밀번호 찾기</string>
+    <string name="login_login">로그인</string>
+    <string name="join_common">일반 회원용</string>
+    <string name="join_medical">병원 회원용</string>
+    <string name="title_activity_reserve">ReserveActivity</string>
+    <string name="title_activity_detail_post">DetailPostActivity</string>
+    <string name="url">http://122.46.53.223:8080/Pet_Tuen_Tuen/</string>
 </resources>

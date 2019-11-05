@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/list_image"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:src="@drawable/hospital_icon"></ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/list_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="병원 진료"
+            android:textSize="25dp"></TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/list_item_sub_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="건강검진"
+                android:layout_weight="10"
+                android:textSize="18dp"></TextView>
+
+            <Button
+                android:id="@+id/user_reserve_cancel_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/button_selector"
+                android:layout_weight="1"
+                android:text="취소하기"></Button>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/list_item_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWeakGray"
+            android:text="다행이 아무이상 아님"
+            android:textSize="15dp"></TextView>
+    </LinearLayout>
+</LinearLayout>

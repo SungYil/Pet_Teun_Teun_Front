@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/reservation_back_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:src="@drawable/back_space"
+            android:scaleType="fitCenter"
+            ></ImageButton>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="병원 상세보기"
+            android:textSize="35dp"
+            android:textColor="@color/colorIconRed"
+            android:layout_gravity="center"></TextView>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/hospital_detail_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="xx병원"
+        android:textSize="25dp"
+        android:padding="8dp"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorBrown"></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:id="@+id/detail_hospital_img"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:src="@drawable/empty_img"
+            ></ImageView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/hospital_detail_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="위치 : xxx시 xx동"></TextView>
+
+            <TextView
+                android:id="@+id/hospital_detail_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="tel : xxx시 xx동"></TextView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/detail_hospital_chat_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/button_selector"
+            android:layout_weight="1"
+            android:text="문의 하기"></Button>
+        <Button
+            android:id="@+id/detail_hospital_reservation_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/button_selector"
+            android:layout_weight="1"
+            android:text="예약 하기"></Button>
+        <Button
+            android:id="@+id/detail_hospital_road_btn"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/button_selector"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="길 찾기"></Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="병원 평점 : "></TextView>
+
+        <RatingBar
+            android:id="@+id/matching_item_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:numStars="5"
+            style="?android:attr/ratingBarStyleIndicator"
+            ></RatingBar>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/detail_hospital_reple_list"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        ></ListView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/detail_hospital_reple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="15"></EditText>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/button_selector"
+            android:text="입력"></Button>
+
+    </LinearLayout>
+
+
+</LinearLayout>

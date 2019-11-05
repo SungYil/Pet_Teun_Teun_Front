@@ -3,9 +3,14 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorIconRed">#df5655</color>
+    <color name="colorIconRed">#DF5655</color>
     <color name="colorWeakBrown">#cfc2bf</color>
     <color name="colorBrown">#857774</color>
     <color name="colorBeigy">#f6f1eb</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorWeakGray">#E0E0E0</color>
+
+    <color name="clicked_1">#8A384C</color>
+    <color name="clicked_2">#8A384C</color>
+    <color name="stroke">#ffffff</color>
 </resources>

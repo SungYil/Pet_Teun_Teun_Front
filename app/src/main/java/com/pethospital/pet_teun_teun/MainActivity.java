@@ -2,6 +2,7 @@ package com.pethospital.pet_teun_teun;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -9,28 +10,60 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.pethospital.pet_teun_teun.fragments.BoardFragment;
+import com.pethospital.pet_teun_teun.fragments.BoardPageFragment;
+import com.pethospital.pet_teun_teun.fragments.MatchingMainFragment;
+import com.pethospital.pet_teun_teun.fragments.MoreViewFragment;
 import com.pethospital.pet_teun_teun.fragments.UserMainFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FragmentManager fragManager;
-    private BoardFragment boardFrag;
-    private UserMainFragment userMainFrag;
+    private Fragment mainFrag;
+    private Fragment twoFrag;
 
+    private FragmentManager fragManager;
+    private BoardPageFragment boardFrag;
+    private UserMainFragment userMainFrag;
+    private MatchingMainFragment matchingMain;
+    private MoreViewFragment moreViewFrag;
+
+   // private HospitalMainFragment hosMainFrag;
+
+    private BottomNavigationView bottomView;
+
+    private String type;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        type=getIntent().getStringExtra("type");
+        //프래그먼트 관리
         fragManager=getSupportFragmentManager();
-        boardFrag=new BoardFragment();
+
+        //버튼에 추가할 프래그먼트들 생성
+        boardFrag=new BoardPageFragment();
         userMainFrag=new UserMainFragment();
 
+        //메인프래그에 값전달해서 병원뽑을지 유저뽑을지.
+        Bundle bundle=new Bundle(1);
+        bundle.putString("type",type);
+        userMainFrag.setArguments(bundle);
+       /* if("hospital".equals(type)){
+            mainFrag=new UserMainFragment();
+            //twoFrag=new HospitalInfoFragment();
+        }else{
+            //twoFrag=new MatchingMainFragment();
+            mainFrag=new UserMainFragment();
+        }*/
+        matchingMain=new MatchingMainFragment();
+        moreViewFrag=new MoreViewFragment();
+
+        //프래그먼트 시작.
         FragmentTransaction transaction=fragManager.beginTransaction();
+        //프래그먼트로 교체.
         transaction.replace(R.id.frameLayout,userMainFrag).commitAllowingStateLoss();
 
-        BottomNavigationView bottomView=findViewById(R.id.navigationView);
+        bottomView=findViewById(R.id.navigationView);
         bottomView.setOnNavigationItemSelectedListener(new ItemSelectedListener(){
 
         });
@@ -45,13 +78,33 @@ public class MainActivity extends AppCompatActivity {
             {
                 case R.id.boardItem:
                     transaction.replace(R.id.frameLayout, boardFrag).commitAllowingStateLoss();
-
                     break;
                 case R.id.userMainItem:
                     transaction.replace(R.id.frameLayout, userMainFrag).commitAllowingStateLoss();
                     break;
+                case R.id.hospitalItem:
+                    transaction.replace(R.id.frameLayout,matchingMain).commitAllowingStateLoss();
+                    break;
+                case R.id.moreViewItem:
+                    transaction.replace(R.id.frameLayout, moreViewFrag).commitAllowingStateLoss();
+                    break;
+                case R.id.noticeItem:
+                    /* TODO : 알림 프래그먼트 */
+                    break;
             }
             return true;
         }
+    }
+
+    /**
+     * 다른 프래그먼트에서 버튼 클릭 시 이 메소드를 통해 프래그먼트 교체가능.
+     * @param fragment
+     */
+    public void replaceFragment(Fragment fragment,int id){
+        //프래그먼트 시작.
+        FragmentTransaction transaction=fragManager.beginTransaction();
+        //프래그먼트로 교체.
+        transaction.replace(R.id.frameLayout,fragment).commitAllowingStateLoss();
+        bottomView.setSelectedItemId(id);
     }
 }
